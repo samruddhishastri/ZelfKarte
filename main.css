@@ -1,0 +1,53 @@
+html,body {
+  height: 100%;
+}
+.brandName {
+  font-family: 'Architects Daughter', cursive;
+  color: #14ffec;
+}
+.shownpart
+{
+    padding: 15%;
+    text-align: center;
+    text-transform: uppercase;
+    background: url(https://images.unsplash.com/photo-1475998893297-4da48a6e037d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80);
+    /* background: url(./janko-ferlic-oLctpwsuYBg-unsplash.jpg); */
+    /* filter: blur(5px);
+    -webkit-filter: blur(5px); */
+    background-position: center;
+    background-size: cover;
+    color: #0d7377;
+    font-family: 'Montserrat', sans-serif;
+    height: 100%;
+}
+
+hr { 
+    height: 30px; 
+    border-style: solid; 
+    border-color: #8c8b8b; 
+    border-width: 1px 0 0 0; 
+    border-radius: 20px; 
+  } 
+  hr:before { 
+    display: block; 
+    content: ""; 
+    height: 30px; 
+    margin-top: -31px; 
+    border-style: solid; 
+    border-color: #8c8b8b; 
+    border-width: 0 0 1px 0; 
+    border-radius: 20px; 
+  }
+
+.fa-user-plus, .fa-user 
+{
+    font-size: x-large;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+    color: white;
+}
+
+.navbar-dark .navbar-nav .nav-link:hover {
+  color:#14ffec;
+}
