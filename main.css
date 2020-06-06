@@ -73,6 +73,7 @@ hr {
 .a{
   color: #14ffec;
 }
+
 .abhi{
   margin:10% auto 0;
   border:5px solid gray;
@@ -80,5 +81,5 @@ hr {
   box-shadow:0 0 3px 0 rgba(0,0,0,0.1);
   color:#14ffec;
   padding:50px;
-  width:500px;
+  width:550px;
 }
