@@ -89,3 +89,10 @@ hr {
 
 }
 
+#carouselExampleSlidesOnly{
+  max-height: 100%;
+  max-width: 100%;
+  display: block;
+  position: relative;
+  bottom: -50px;
+}
