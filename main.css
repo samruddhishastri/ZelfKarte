@@ -101,4 +101,29 @@ hr {
   position: relative;
   margin: auto;
   bottom: -15vw;
+  color: white;
+  width: 40.983vw;
+}
+
+@media screen and (max-width: 945px) {
+  #reader {
+  position: relative;
+  margin: auto;
+  bottom: -15vw;
+  color: white;
+  width: 55.983vw;
+  font-size: 1.5vw;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  #reader {
+  position: relative;
+  margin: auto;
+  bottom: -15vw;
+  color: white;
+  width: 70.983vw;
+  font-size: 2.5vw;
+}
+
 }
