@@ -1,24 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Signup Page</title>
+	<title>Zelf Karte</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
     <link href="https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Montserrat:wght@500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="main.css">
-    <script>
-    	function myFunction() {
-  			var x = document.getElementById("passwd");
-  			if (x.type === "password") {
-    			x.type = "text";
-  			} 
-  			else {
-    			x.type = "password";
-  			}
-		}
-	</script>
+    <script src="main.js"></script>
 </head>
 <body style="background-color: #1B2631;">
 	<div id="navMain">
@@ -78,7 +68,7 @@
             <BR>
             <BR>
             Password:  <input type="password" name="Password" id="passwd" placeholder="Password" class="inputbox" required pattern=".{5,10}" required title="5 to 10 characters only">
-            <i class="fa fa-eye" onclick="myFunction()" style="color:white"></i>
+            <i class="fa fa-eye" onclick="myFunction_signup()" style="color:white"></i>
             <BR>
             <BR>
             <input type="checkbox" required>By creating an account you agree to our <a href="#" style="color:dodgerblue"> Terms & Conditions</a> and <a href="#" style="color:dodgerblue">Privacy Policy</a>.

@@ -96,3 +96,9 @@ hr {
   position: relative;
   bottom: -50px;
 }
+
+#reader {
+  position: relative;
+  margin: auto;
+  bottom: -15vw;
+}
