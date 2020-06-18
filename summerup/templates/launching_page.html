@@ -1,0 +1,61 @@
+{% extends "layout.html" %}
+
+{% block nav %}
+    <div class="navbar-nav ">
+        <a class="nav-item nav-link mx-2 " href="{{ url_for('about') }}">ABOUT<span class="d-md-none"></span></a>
+        <a class="nav-item nav-link mx-2 " href="{{ url_for('signup') }}">SIGN UP<i class="fas fa-user-plus p-2 d-none d-md-inline"></i>
+            <span class="d-md-none"><i
+            class="fas fa-user-plus px-2"></i></span>
+        </a>
+        <a class="nav-item nav-link mx-2 " href="{{ url_for('login') }}">LOGIN<i
+            class="fas fa-user p-2 d-none d-md-inline"></i><span class="d-md-none"><i class="fas fa-user px-2"></i></span>
+        </a>
+    </div>
+{% endblock nav %}
+
+
+{% block carousel %}
+    <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="https://image.freepik.com/free-vector/online-shopping-related-icons-image_24911-12448.jpg" class="d-block w-100" alt="" height="350">
+            </div>
+            <div class="carousel-item">
+                <img src="https://media.gettyimages.com/illustrations/set-of-items-related-to-shopping-illustration-id588707086" class="d-block w-100" alt="" height="350">
+            </div>
+            <div class="carousel-item">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRKF2otKf2HMsGS0twEAxbk9_YvboGj_9OBd32Li6xASBIeYD05&usqp=CAU" class="d-block w-100" alt="" height="350">
+            </div>
+        </div>
+    </div>
+{% endblock carousel %}
+
+{% block content %}
+<div class="shownpart">
+    <div class="container">
+        <div class="row">
+            <h1 class="display-1 col-12">
+                <svg class="bi bi-cart-check" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" d="M11.354 5.646a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L8 8.293l2.646-2.647a.5.5 0 0 1 .708 0z"/>
+                    <path fill-rule="evenodd" d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm7 0a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"/>
+                </svg>
+            </h1>
+            <h1 class="display-3 col-12 py-3 brandName" style="font-family: 'Rock Salt', cursive;" >Zelf Karte</h1>
+        </div>
+
+        <hr class="row col-12">
+
+        <h4> ipsum dolor sit amet consectetur adipisicing elit cum voluptatum.
+        </h4>
+        <br>
+        <br>
+        <br>
+
+        <div class="d-md-flex justify-content-around mt-5">
+            <button type="button" class="btn btn-info btn-lg col-sm-6 mt-5 mt-md-0 col-md-4">INFORMATION and FAQs</button>
+            <button type="button" class="btn btn-danger btn-lg col-sm-6 mt-5 mt-md-0 col-md-4">COMPLAIN</button>
+        </div>
+    </div>
+</div>
+{% endblock content %}
+    

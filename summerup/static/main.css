@@ -5,20 +5,28 @@ html,body {
   font-family: 'Architects Daughter', cursive;
   color: #14ffec;
 }
+
 .shownpart
 {
     padding: 9%;
     text-align: center;
     text-transform: uppercase;
     background: url(https://images.unsplash.com/photo-1576719218362-01af43ab192a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=675&q=80);
-    /* background: url(./janko-ferlic-oLctpwsuYBg-unsplash.jpg); */
-    /* filter: blur(5px);
-    -webkit-filter: blur(5px); */
     background-position: center;
     background-size: cover;
     color: #0d7377;
     font-family: 'Montserrat', sans-serif;
     height: 100%;
+}
+
+.login {
+    padding: 9%;
+    text-align: center;
+    text-transform: uppercase;
+    color: #0d7377;
+    font-family: 'Montserrat', sans-serif;
+    height: 140%;
+    background-color: #1B2631;
 }
 
 hr { 

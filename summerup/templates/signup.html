@@ -1,0 +1,98 @@
+{% extends "layout.html" %}
+
+{% block nav %}
+<div class="navbar-nav ">
+    <a class="nav-item nav-link mx-2 p-2" href="{{ url_for('launch') }}">HOME</a>
+    <a class="nav-item nav-link mx-2 p-2" href="{{ url_for('about') }}">ABOUT</a>
+    <a class="nav-item nav-link mx-2 " href="{{ url_for('login') }}">LOGIN<i
+    class="fas fa-user p-2 d-none d-md-inline"></i><span class="d-md-none"><i
+    class="fas fa-user px-2"></i></span></a>
+</div>
+{% endblock nav %}
+
+{% block content %}
+<div class="login">
+<div class="container">
+    <br>
+    <br>
+    <br>
+    <br>
+    <h1 class="a" align="center">Sign Up</h1>
+        
+    <div class="Signup">
+        <div class="content-section">
+        <form method="POST" action="">
+            {{ form.hidden_tag() }}
+            <fieldset class="form-group">
+                <div class="form-group">
+                    {{ form.username.label(class="form-control-label") }}
+
+                    {% if form.username.errors %}
+                        {{ form.username(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.username.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.username(class="form-control form-control-lg") }}
+                    {% endif %}
+                </div>
+                <div class="form-group">
+                    {{ form.email.label(class="form-control-label") }}
+                    {% if form.email.errors %}
+                        {{ form.email(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.email.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.email(class="form-control form-control-lg") }}
+                    {% endif %}
+                </div>
+                <div class="form-group">
+                    {{ form.password.label(class="form-control-label") }}
+                    {% if form.password.errors %}
+                        {{ form.password(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.password.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.password(class="form-control form-control-lg") }}
+                    {% endif %}
+                    <i class="fa fa-eye" onclick="myFunction_signup()" style="color:white"></i>
+                </div>
+                <div class="form-group">
+                    {{ form.confirm_password.label(class="form-control-label") }}
+                    {% if form.confirm_password.errors %}
+                        {{ form.confirm_password(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.confirm_password.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.confirm_password(class="form-control form-control-lg") }}
+                    {% endif %}
+                    <i class="fa fa-eye" onclick="myFunction_signup()" style="color:white"></i>
+                </div>
+            </fieldset>
+            <p>BY CREATINNG AN ACCOUNT, YOU AGREE TO OUR <a class="ml-2" href="{{ url_for('login') }}">TERMS AND CONDITIONS</a> AND 
+                <a class="ml-2" href="{{ url_for('login') }}">PRIVACY POLICY</a>.</p>
+            <div class="form-group">
+                {{ form.submit(class="btn btn-outline-info") }}
+            </div>
+        </form>
+    </div>
+    <div class="border-top pt-3">
+        <small class="text-muted">
+            Already Have An Account? <a class="ml-2" href="{{ url_for('login') }}">Sign In</a>
+        </small>
+    </div>
+</div>
+</div>
+</div>
+{% endblock content %}
