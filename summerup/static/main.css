@@ -61,7 +61,20 @@ hr {
 }
 
 .Signup{
-  width:500px;
+  width:30.983vw;
+  border: 0.270vw solid gray;
+  border-radius:1.349vw; 
+  box-shadow: 0 0 0.162vw 0 rgba(0,0,0,0.1);
+  padding: 2.698vw;
+  margin: 10% auto 0;
+  text-align: left;
+  font-family: 'Montserrat', cursive;
+  color: #14ffec;
+
+}
+
+.Account {
+  width:40.983vw;
   border: 0.270vw solid gray;
   border-radius:1.349vw; 
   box-shadow: 0 0 0.162vw 0 rgba(0,0,0,0.1);
@@ -72,7 +85,7 @@ hr {
   color: #14ffec;
 }
 
-.inputbox{
+.inputbox{ 
 
  border-radius:0.270vw; 
 
@@ -82,9 +95,24 @@ hr {
   color: #14ffec;
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 950px) {
   .Signup{
   width:80.983vw;
+  border: 0.270vw solid gray;
+  border-radius:1.349vw; 
+  box-shadow: 0 0 0.162vw 0 rgba(0,0,0,0.1);
+  padding: 2.698vw;
+  margin: 10% auto 0;
+  text-align: left;
+  font-family: 'Montserrat', cursive;
+  color: #14ffec;
+  }
+
+}
+
+@media screen and (max-width: 710px) {
+  .Signup{
+  width:100.983vw;
   border: 0.270vw solid gray;
   border-radius:1.349vw; 
   box-shadow: 0 0 0.162vw 0 rgba(0,0,0,0.1);
@@ -135,3 +163,11 @@ hr {
 }
 
 }
+
+.account-img {
+  height: 125px;
+  width: 125px;
+  margin-right: 20px;
+  margin-bottom: 16px;
+}
+
