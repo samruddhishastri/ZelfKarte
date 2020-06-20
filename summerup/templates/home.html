@@ -2,9 +2,13 @@
 
 {% block nav %}
     <div class="navbar-nav ">
-        <a class="nav-item nav-link mx-2 " href="{{ url_for('qrcode') }}">SCAN</a>
-        <a class="nav-item nav-link mx-2 " href="{{ url_for('logout') }}">LOGOUT</a>
-        <a class="nav-item nav-link mx-2 " href="{{ url_for('account') }}">ACCOUNT</a>
+        <a class="nav-item nav-link mx-2 " href="{{ url_for('qrcode') }}">SCAN<i
+        class="fas fa-qrcode fa-lg p-2 d-none d-md-inline"></i><span class="d-md-none"><i class="fas fa-qrcode px-2"></i></span></a>
+        <a class="nav-item nav-link mx-2 " href="{{ url_for('account') }}">ACCOUNT<i
+        class="fas fa-info-circle fa-lg p-2 d-none d-md-inline"></i><span class="d-md-none"><i class="fas fa-info-circle px-2"></i></span></a>
+        <a class="nav-item nav-link mx-2 " href="{{ url_for('logout') }}">LOG OUT<i
+        class="fas fa-user-times fa-lg p-2 d-none d-md-inline"></i><span class="d-md-none"><i class="fas fa-user-times px-2"></i></span></a>
+        
     </div>
 {% endblock nav %}
 

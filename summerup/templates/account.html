@@ -2,9 +2,10 @@
 
 {% block nav %}
 	<div class="navbar-nav ">
-    	<a class="nav-item nav-link mx-2 " href="{{ url_for('home') }}">HOME<span class="d-md-none"></span></a>
-        <a class="nav-item nav-link mx-2 " href="{{ url_for('qrcode') }}">SCAN<span class="d-md-none"></span></a>
-        
+        <a class="nav-item nav-link mx-2 " href="{{ url_for('home') }}">HOME<i
+        class="fas fa-home fa-lg p-2 d-none d-md-inline"></i><span class="d-md-none"><i class="fas fa-users px-2"></i></span></a>
+    	<a class="nav-item nav-link mx-2 " href="{{ url_for('qrcode') }}">SCAN<i
+        class="fas fa-qrcode fa-lg p-2 d-none d-md-inline"></i><span class="d-md-none"><i class="fas fa-users px-2"></i></span></a>
     </div>
 {% endblock nav %}
 
