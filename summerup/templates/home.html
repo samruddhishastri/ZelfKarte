@@ -17,13 +17,13 @@
     <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <img src="https://image.freepik.com/free-vector/online-shopping-related-icons-image_24911-12448.jpg" class="d-block w-100" alt="" height="350">
+                <img src="{{ url_for('static', filename='carousel/' + 'slide1.jpg') }}" class="d-block w-100" alt="" height="350">
             </div>
             <div class="carousel-item">
-                <img src="https://media.gettyimages.com/illustrations/set-of-items-related-to-shopping-illustration-id588707086" class="d-block w-100" alt="" height="350">
+                <img src="{{ url_for('static', filename='carousel/' + 'slide2.jpg') }}" class="d-block w-100" alt="" height="350">
             </div>
             <div class="carousel-item">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRKF2otKf2HMsGS0twEAxbk9_YvboGj_9OBd32Li6xASBIeYD05&usqp=CAU" class="d-block w-100" alt="" height="350">
+                <img src="{{ url_for('static', filename='carousel/' + 'slide3.jpg') }}" class="d-block w-100" alt="" height="350">
             </div>
         </div>
     </div>
@@ -52,9 +52,21 @@
 
         <div class="d-md-flex justify-content-around mt-5">
             <button type="button" class="btn btn-info btn-lg col-sm-6 mt-5 mt-md-0 col-md-4">INFORMATION and FAQs</button>
-            <button type="button" class="btn btn-danger btn-lg col-sm-6 mt-5 mt-md-0 col-md-4">COMPLAIN</button>
+            <a href="{{ url_for('complains') }}" class="btn btn-danger btn-lg col-sm-6 mt-5 mt-md-0 col-md-4">REVIEWS and COMPLAINTS</a>
         </div>
     </div>
 </div>
+<!-- {% for post in posts %}
+        <article>
+          <div>
+            <div>
+              <a class="mr-2" href="#">{{ post.author.username }}</a>
+              <small class="text-muted">{{ post.date_posted.strftime('%Y-%m-%d') }}</small>
+            </div>
+            <h2><a href="{{ url_for('post', post_id=post.id) }}">{{ post.title }}</a></h2>
+            <p>{{ post.content }}</p>
+          </div>
+        </article>
+    {% endfor %} -->
 {% endblock content %}
     
