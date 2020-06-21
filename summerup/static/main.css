@@ -16,7 +16,6 @@ html,body {
     background-size: cover;
     color: #0d7377;
     font-family: 'Montserrat', sans-serif;
-    height: 100%;
 }
 
 .login {
@@ -25,7 +24,6 @@ html,body {
     text-transform: uppercase;
     color: #0d7377;
     font-family: 'Montserrat', sans-serif;
-    height: 140%;
     background-color: #1B2631;
 }
 
@@ -70,19 +68,8 @@ hr {
   text-align: left;
   font-family: 'Montserrat', cursive;
   color: #14ffec;
-
-}
-
-.Account {
-  width:40.983vw;
-  border: 0.270vw solid gray;
-  border-radius:1.349vw; 
-  box-shadow: 0 0 0.162vw 0 rgba(0,0,0,0.1);
-  padding: 2.698vw;
-  margin: 10% auto 0;
-  text-align: left;
-  font-family: 'Montserrat', cursive;
-  color: #14ffec;
+  overflow: hidden;
+  text-overflow: ellipsis; 
 }
 
 .inputbox{ 
@@ -106,13 +93,15 @@ hr {
   text-align: left;
   font-family: 'Montserrat', cursive;
   color: #14ffec;
+  overflow: hidden;
+  text-overflow: ellipsis; 
   }
 
 }
 
 @media screen and (max-width: 710px) {
   .Signup{
-  width:100.983vw;
+  width:80.983vw;
   border: 0.270vw solid gray;
   border-radius:1.349vw; 
   box-shadow: 0 0 0.162vw 0 rgba(0,0,0,0.1);
@@ -121,6 +110,8 @@ hr {
   text-align: left;
   font-family: 'Montserrat', cursive;
   color: #14ffec;
+  overflow: hidden;
+  text-overflow: ellipsis; 
   }
 
 }
