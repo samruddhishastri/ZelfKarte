@@ -3,7 +3,7 @@ import secrets
 from PIL import Image
 from flask import render_template, url_for, flash, redirect, request, abort
 from summerup import app, db, bcrypt, mail
-from summerup.models import User, Post
+from summerup.models import User, Post, Todo
 from summerup.forms import SignupForm, LoginForm, UpdateAccountForm, PostForm, RequestResetForm, ResetPasswordForm
 from flask_login import login_user, current_user, logout_user, login_required
 from flask_mail import Message
@@ -189,3 +189,37 @@ def reset_token(token):
 		flash(f'Your password is updated.', 'success')
 		return redirect(url_for('login'))
 	return render_template('reset_token.html', title='Reset Password', form=form)
+
+@app.route('/list')
+# @login_required
+def list():
+    incomplete = Todo.query.filter_by(complete=False).all()
+    complete = Todo.query.filter_by(complete=True).all()
+
+    return render_template('list.html', incomplete=incomplete, complete=complete)
+
+@app.route('/add', methods=['POST'])
+def add():
+    todo = Todo(text=request.form['todoitem'], complete=False)
+    db.session.add(todo)
+    db.session.commit()
+
+    return redirect(url_for('list'))
+
+@app.route('/complete/<id>')
+def complete(id):
+
+    todo = Todo.query.filter_by(id=int(id)).first()
+    todo.complete = True
+    db.session.commit()
+    
+    return redirect(url_for('list'))
+
+@app.route('/task_delete/<id>')
+def task_delete(id):
+
+    todo = Todo.query.filter_by(id=int(id)).first()
+    db.session.delete(todo)
+    db.session.commit()
+    
+    return redirect(url_for('list'))

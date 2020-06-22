@@ -25,7 +25,6 @@ html,body {
     color: #0d7377;
     font-family: 'Montserrat', sans-serif;
     background-color: #1B2631;
-    height: 100%;
 }
 
 hr { 
@@ -35,16 +34,17 @@ hr {
     border-width: 0.054vw 0 0 0; 
     border-radius: 1.079vw; 
   } 
-  hr:before { 
-    display: block; 
-    content: ""; 
-    height: 1.619vw; 
-    margin-top: -1.673vw; 
-    border-style: solid; 
-    border-color: #8c8b8b; 
-    border-width: 0 0 0.054vw 0; 
-    border-radius: 1.079vw; 
-  }
+
+hr:before { 
+  display: block; 
+  content: ""; 
+  height: 1.619vw; 
+  margin-top: -1.673vw; 
+  border-style: solid; 
+  border-color: #8c8b8b; 
+  border-width: 0 0 0.054vw 0; 
+  border-radius: 1.079vw; 
+}
 
 .fa-user-plus, .fa-user 
 {
@@ -152,8 +152,7 @@ hr {
   color: white;
   width: 70.983vw;
   font-size: 2.5vw;
-}
-
+  }
 }
 
 .account-img {
@@ -163,3 +162,66 @@ hr {
   margin-bottom: 16px;
 }
 
+html, .shoplist_body
+{
+  height: 100%;
+  background: #1B2631;
+  color: #f4f6ff;
+}
+.shoplist
+{
+  position: relative;
+  top: 80px;
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
+}
+.shoplist h3
+{
+  text-align: left;
+}
+.txtb{
+  width: 80%;
+  border: none;
+  border-bottom: 2px solid #000;
+  background: none;
+  padding: 10px;
+  outline: none;
+  font-size: 25px;
+  color: #14ffec;
+}
+.task{
+  border-radius: 25px;
+  width: 100%;
+  background: rgba(255,255,255,0.5);
+  padding: 18px;
+  margin: 6px 0;
+  overflow: hidden;
+  text-align: left;
+  font-weight: 400;
+  font-family: 'Architects Daughter', cursive;
+  font-size: 25px; 
+}
+.addButton
+{
+  float: none;
+  background: #32cd32;
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.task i{
+  color: #323232;
+  float: right;
+  margin-left: 25px;
+  cursor: pointer;
+}
+
+.notcomp .task{
+  background: #14ffec;
+  color: #212121;
+}
+
+.comp .task{
+  background: #0d7377;
+  color: #212121;
+}
