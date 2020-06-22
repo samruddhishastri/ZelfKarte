@@ -27,25 +27,12 @@
             <br>
             <br>
             <br>
-            <h1 class="a" align="center">Login</h1>
+            <h1 class="a" align="center">Reset Password</h1>
                 <div class="Signup">
                     <div class="content-section">
                         <form method="POST" action="">
                             {{ form.hidden_tag() }}
                             <fieldset class="form-group">
-                                <div class="form-group">
-                                    {{ form.email.label(class="form-control-label") }}
-                                    {% if form.email.errors %}
-                                    {{ form.email(class="form-control form-control-lg is-invalid") }}
-                                    <div class="invalid-feedback">
-                                        {% for error in form.email.errors %}
-                                        <span>{{ error }}</span>
-                                        {% endfor %}
-                                    </div>
-                                    {% else %}
-                                    {{ form.email(class="form-control form-control-lg") }}
-                                    {% endif %}
-                                </div>
                                 <div class="form-group">
                                     {{ form.password.label(class="form-control-label") }}
                                     {% if form.password.errors %}
@@ -58,25 +45,26 @@
                                     {% else %}
                                     {{ form.password(class="form-control form-control-lg") }}
                                     {% endif %}
-                                    <i class="fa fa-eye" onclick="myFunction_signup()" style="color:white"></i>
                                 </div>
-                                <div class="form-check">
-                                    {{ form.remember(class="form-check-input") }}
-                                    {{ form.remember.label(class="form-check-label") }}
+
+                                <div class="form-group">
+                                    {{ form.confirm_password.label(class="form-control-label") }}
+                                    {% if form.confirm_password.errors %}
+                                    {{ form.confirm_password(class="form-control form-control-lg is-invalid") }}
+                                    <div class="invalid-feedback">
+                                        {% for error in form.confirm_password.errors %}
+                                        <span>{{ error }}</span>
+                                        {% endfor %}
+                                    </div>
+                                    {% else %}
+                                    {{ form.confirm_password(class="form-control form-control-lg") }}
+                                    {% endif %}
                                 </div>
                             </fieldset>
                             <div class="form-group">
                                 {{ form.submit(class="btn btn-outline-info") }}
-                                <small class="text-muted ml-2">
-                                <a href="{{ url_for('reset_request') }}">Forgot Password?</a>
-                            </small>
                             </div>
                         </form>
-                    </div>
-                    <div class="border-top pt-3">
-                        <small class="text-muted">
-                            Don't Have An Account? <a class="ml-2" href="{{ url_for('signup') }}">Sign Up</a>
-                        </small>
                     </div>
                 </div>
             </div>
