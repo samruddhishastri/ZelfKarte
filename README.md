@@ -12,10 +12,10 @@ Consider some situations :
 
 * Imagine You are the last person on earth... ohk I took it too far just jump to the next part.
 
-For situtations like this we have got the perfect solution for you :- **Zelf Karate**
+For situtations like this we have got the perfect solution for you :- **Zelf Karte**
 
 ## Basic Idea
-The Basic Idea behined Zelf Karate is to minimize human involvement in the process of shopping and thus make transactions faster.
+The Basic Idea behined Zelf Karte is to minimize human involvement in the process of shopping and thus make transactions faster.
 
 The web-application serves as the platform to perform the transactions online through digital currency. It also offers to explore the available items in the mart and prepare a shopping list beforehand.
 
