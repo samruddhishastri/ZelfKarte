@@ -41,7 +41,7 @@ def signup():
 @app.route('/login', methods=['GET', 'POST'])
 def login():
 	if current_user.is_authenticated:
-		flash('You have been logged in as ' + current_user.username + '. Please logout from this account to login in with different account.', 'warning')
+		flash('You have been logged in as ' + current_user.username + '.' 'warning')
 		return redirect('home')
 	form = LoginForm()
 	if form.validate_on_submit():
