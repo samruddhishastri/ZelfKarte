@@ -59,6 +59,9 @@ def qrcode():
 @app.route('/logout')
 @login_required
 def logout():
+	Todo.query.filter_by(complete=False).delete()
+	Todo.query.filter_by(complete=True).delete()
+	db.session.commit()
 	logout_user()
 	return redirect(url_for('launch'))
 
@@ -191,7 +194,7 @@ def reset_token(token):
 	return render_template('reset_token.html', title='Reset Password', form=form)
 
 @app.route('/list')
-# @login_required
+@login_required
 def list():
     incomplete = Todo.query.filter_by(complete=False).all()
     complete = Todo.query.filter_by(complete=True).all()
