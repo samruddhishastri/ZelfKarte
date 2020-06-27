@@ -21,7 +21,8 @@
 
 {% block content %}
 <div class="login" style="color: white;">
-	 <h1 class="a" align="center">Complains and Reviews</h1>
+	 <!-- <h1 class="a" align="center">Complains and Reviews</h1> -->
+     <h1 class="a" align="left">Reviews by {{ user.username }} ({{ posts.total }})</h1>
 {% for post in posts.items %}
 <div>
 <div class="Signup" >
@@ -38,9 +39,9 @@
 {% for page_num in posts.iter_pages(left_edge=1, right_edge=1, left_current=1, right_current=2) %}
 {% if page_num %}
     {% if posts.page == page_num %}
-        <a class='btn btn-info mb-4' href="{{ url_for('complains',page=page_num) }}">{{ page_num }}</a>
+        <a class='btn btn-info mb-4' href="{{ url_for('user_posts',username=user.username, page=page_num) }}">{{ page_num }}</a>
     {% else %}
-        <a class='btn btn-outline-info mb-4' href="{{ url_for('complains',page=page_num) }}">{{ page_num }}</a>
+        <a class='btn btn-outline-info mb-4' href="{{ url_for('user_posts',username=user.username,page=page_num) }}">{{ page_num }}</a>
     {% endif %}
 {% else %}
 ....
