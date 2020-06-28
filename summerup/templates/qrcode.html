@@ -45,6 +45,7 @@
                     <td>{{ item.item_cost }}</td>
                     <td>{{ item.item_quantity }}</td>
                     <td>{{ item.item_total }}</td>
+                    <td><a href="{{ url_for('delete_item', id=item.id) }}"><i class='fas fa-trash-alt'></i></a></td>
                 </tr>
                 {% endfor %}
             </tbody>

@@ -237,6 +237,15 @@ def task_delete(id):
     db.session.commit()
     return redirect(url_for('list'))
 
+@app.route('/delete_item/<id>')
+def delete_item(id):
+    item = Item.query.filter_by(id=int(id)).first()
+    db.session.delete(item)
+    db.session.commit()
+    item.purchase = []
+    db.session.commit()
+    return redirect(url_for('cart'))
+
 @app.route('/add_item', methods=['POST'])
 def add_item():
     item = Item(item_name=request.form['item_name'], item_cost=request.form['item_cost'], item_quantity=request.form['item_quantity'], item_total=request.form['item_total'])
