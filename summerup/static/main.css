@@ -224,3 +224,27 @@ html, .shoplist_body
   background: #0d7377;
   color: #212121;
 }
+
+
+#cart_table {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#cart_table td, #cart_table th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#cart_table tr:nth-child(even){background-color: #f2f2f2;}
+
+#cart_table tr:hover {background-color: #ddd;}
+
+#cart_table th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #3399ff;
+  color: white;
+}

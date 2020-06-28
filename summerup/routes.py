@@ -3,7 +3,7 @@ import secrets
 from PIL import Image
 from flask import render_template, url_for, flash, redirect, request, abort
 from summerup import app, db, bcrypt, mail
-from summerup.models import User, Post, Todo
+from summerup.models import User, Post, Todo, Item
 from summerup.forms import SignupForm, LoginForm, UpdateAccountForm, PostForm, RequestResetForm, ResetPasswordForm
 from flask_login import login_user, current_user, logout_user, login_required
 from flask_mail import Message
@@ -239,3 +239,18 @@ def user_posts(username):
 	user = User.query.filter_by(username=username).first_or_404()
 	posts = Post.query.filter_by(author=user).order_by(Post.date_posted.desc()).paginate(page=page,per_page=5)
 	return render_template('user_posts.html', posts=posts, user=user)
+
+@app.route('/add_item', methods=['POST'])
+def add_item():
+    item = Item(item_name=request.form['item_name'], item_cost=request.form['item_cost'], item_quantity=request.form['item_quantity'], item_total=request.form['item_total'])
+    db.session.add(item)
+    db.session.commit()
+    current_user.purchase.append(item)
+    db.session.commit()
+
+    return redirect(url_for('cart'))
+
+@app.route('/cart')
+@login_required
+def cart():
+	return render_template('qrcode.html')

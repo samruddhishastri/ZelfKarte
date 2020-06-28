@@ -4,7 +4,7 @@
 {% block nav %}
 
 <div class="navbar-nav ">
-    <button class="nav-item nav-link mx-2 yoyo " style="background: #343a40; border: none;
+    <button class="nav-item nav-link mx-2 cart-icon " style="background: #343a40; border: none;
     outline:none; color: white;">CART<i
     class="fas fa-cart-arrow-down fa-lg p-2 d-none d-md-inline"></i><span class="d-md-none"><i
     class="fas fa-cart-arrow-down px-2"></i></span></button>
@@ -20,17 +20,52 @@
     
 <div class="login" style="height: 150%;">
     <div class="container" style="height: 100%;">
-        <div class="woohoo" style="background: white;
-        color: green; height: 100%; display: none;">
-            yoyoyo
+        <div class="cart" style="background: white; color: green; height: 100%; display: none;" id="cart">
+            <div style="display: none;">
+            <form id='myForm' action="{{ url_for('add_item') }}" method="POST" action='onScanSuccess'>
+              <input class="txtb" type="text" name="item_name" id='item_name_text'>
+              <input class="txtb" type="text" name="item_cost" id='item_cost_text'>
+              <input class="txtb" type="text" name="item_quantity" id='item_quantity_text'>
+              <input class="txtb" type="text" name="item_total" id='item_total_text'>
+            </form>
         </div>
+            <table id='cart_table'>
+                <thead>
+                <tr>
+                    <th>Item Name</th>
+                    <th>Item Cost per Unit</th>
+                    <th>Item Quantity</th>
+                    <th>Item Total</th>
+                </tr>
+            </thead>
+                <tbody>
+                {% for item in current_user.purchase: %}
+                <tr>
+                    <td>{{ item.item_name }}</td>
+                    <td>{{ item.item_cost }}</td>
+                    <td>{{ item.item_quantity }}</td>
+                    <td>{{ item.item_total }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+            </table>
+        </div>
+
        <div id="reader"></div>
+    
     </div>
 
     <script type="text/javascript">
 
             function onScanSuccess(qrCodeMessage) {
-                console.log('Scan Successful'); 
+                var str = qrCodeMessage;
+                var res = str.split(' ');
+                alert('You have purchased ' + res[0] + ' worth Rs.' + res[1] + ' per unit.' + ' You have purchased '+ res[2] + ' unit(s) of it, worth Rs.' + res[3] + ' in total.' );
+                document.getElementById("item_name_text").value = res[0];
+                document.getElementById("item_cost_text").value = res[1];
+                document.getElementById("item_quantity_text").value = res[2];
+                document.getElementById("item_total_text").value = res[3];
+                document.getElementById("myForm").submit();
             }
 
             var html5QrcodeScanner = new Html5QrcodeScanner(
@@ -42,8 +77,8 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script>
     $(document).ready(function(){
-        $(".yoyo").click(function(){
-            $(".woohoo").animate({
+        $(".cart-icon").click(function(){
+            $(".cart").animate({
                 width: "toggle"
             });
             $("#reader").animate({

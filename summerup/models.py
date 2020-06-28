@@ -7,6 +7,11 @@ from flask_login import UserMixin
 def load_user(user_id):
 	return User.query.get(int(user_id))
 
+purchase = db.Table('purchase',
+	db.Column('user_id', db.Integer, db.ForeignKey('user.id')),
+	db.Column('item_id', db.Integer, db.ForeignKey('item.id'))
+)
+
 class User(db.Model, UserMixin):
 	id = db.Column(db.Integer, primary_key=True)
 	username = db.Column(db.String(100), nullable=False)
@@ -38,10 +43,19 @@ class Post(db.Model):
     content = db.Column(db.Text, nullable=False)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
 
-class Todo(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    text = db.Column(db.String(200))
-    complete = db.Column(db.Boolean)
-
     def __repr__(self):
         return f"Post('{self.title}', '{self.date_posted}')"
+
+
+class Todo(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    text = db.Column(db.String(200), nullable=False)
+    complete = db.Column(db.Boolean)
+
+class Item(db.Model):
+	id = db.Column(db.Integer, primary_key=True)
+	item_name = db.Column(db.String(20))
+	item_cost = db.Column(db.Integer)
+	item_quantity = db.Column(db.Integer)
+	item_total = db.Column(db.Integer)
+	buyers = db.relationship('User', secondary=purchase, backref=db.backref('purchase', lazy='dynamic'))
