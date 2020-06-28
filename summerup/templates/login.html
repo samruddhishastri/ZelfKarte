@@ -47,7 +47,8 @@
                                     {% endif %}
                                 </div>
                                 <div class="form-group">
-                                    {{ form.password.label(class="form-control-label") }}
+                                    {{ form.password.label(class="form-control-label ") }}
+                                    
                                     {% if form.password.errors %}
                                     {{ form.password(class="form-control form-control-lg is-invalid") }}
                                     <div class="invalid-feedback">
@@ -58,7 +59,7 @@
                                     {% else %}
                                     {{ form.password(class="form-control form-control-lg") }}
                                     {% endif %}
-                                    <i class="fa fa-eye" onclick="myFunction_signup()" style="color:white"></i>
+                                    <a><i class="fa fa-eye" onclick="myFunction_login()" style="color:white; cursor: pointer;"></i></a>
                                 </div>
                                 <div class="form-check">
                                     {{ form.remember(class="form-check-input") }}
@@ -81,4 +82,18 @@
                 </div>
             </div>
         </div>
+
+        <script type="text/javascript">
+            function myFunction_login(){
+                var x = document.getElementById('password');
+
+                if(x.type=='password'){
+                    x.type = 'text';
+                }
+                
+                else{
+                    x.type = 'password';
+                }
+            }
+        </script>
         {% endblock content %}

@@ -66,7 +66,7 @@
                     {% else %}
                         {{ form.password(class="form-control form-control-lg") }}
                     {% endif %}
-                    <i class="fa fa-eye" onclick="myFunction_signup()" style="color:white"></i>
+                    <i class="fa fa-eye" onclick="myFunction_signup_password()" style="color:white"></i>
                 </div>
                 <div class="form-group">
                     {{ form.confirm_password.label(class="form-control-label") }}
@@ -80,7 +80,7 @@
                     {% else %}
                         {{ form.confirm_password(class="form-control form-control-lg") }}
                     {% endif %}
-                    <i class="fa fa-eye" onclick="myFunction_signup()" style="color:white"></i>
+                    <i class="fa fa-eye" onclick="myFunction_signup_confirm_password()" style="color:white"></i>
                 </div>
             </fieldset>
             <p>BY CREATINNG AN ACCOUNT, YOU AGREE TO OUR <a class="ml-2" href="{{ url_for('login') }}">TERMS AND CONDITIONS</a> AND 
@@ -98,4 +98,26 @@
 </div>
 </div>
 </div>
+<script type="text/javascript">
+    function myFunction_signup_password(){
+        var x = document.getElementById('password');
+        if(x.type=='password'){
+            x.type = 'text';
+        }
+                
+        else{
+            x.type = 'password';
+        }
+    }
+
+    function myFunction_signup_confirm_password(){
+        var x = document.getElementById('confirm_password');
+        if(x.type=='password'){
+            x.type = 'text';
+        }
+        else{
+            x.type = 'password';
+        }
+    }
+</script>
 {% endblock content %}
