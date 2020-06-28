@@ -33,7 +33,7 @@ Non-General Libraries Required :
 * flask_bcrypt
 * wtforms
 * datetime
-* PIL
+* PIL (Pillow)
 
 ## Installation
 * Clone the repo to your local machine 
