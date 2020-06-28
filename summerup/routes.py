@@ -65,9 +65,6 @@ def qrcode():
 @app.route('/logout')
 @login_required
 def logout():
-	Todo.query.filter_by(complete=False).delete()
-	Todo.query.filter_by(complete=True).delete()
-	db.session.commit()
 	logout_user()
 	return redirect(url_for('launch'))
 
@@ -161,6 +158,13 @@ def delete_post(post_id):
     flash('Your post has been deleted!', 'success')
     return redirect(url_for('complains'))
 
+@app.route("/user/<string:username>")
+def user_posts(username):
+	page = request.args.get('page',1,type=int)
+	user = User.query.filter_by(username=username).first_or_404()
+	posts = Post.query.filter_by(author=user).order_by(Post.date_posted.desc()).paginate(page=page,per_page=5)
+	return render_template('user_posts.html', posts=posts, user=user)
+
 def send_reset_email(user):
 	token = user.get_reset_token()
 	msg = Message('Password Reset Request', sender='zelfkarte@gmail.com', recipients=[user.email])
@@ -202,15 +206,14 @@ def reset_token(token):
 @app.route('/list')
 @login_required
 def list():
-    incomplete = Todo.query.filter_by(complete=False).all()
-    complete = Todo.query.filter_by(complete=True).all()
-
-    return render_template('list.html', incomplete=incomplete, complete=complete)
+    return render_template('list.html')
 
 @app.route('/add', methods=['POST'])
 def add():
     todo = Todo(text=request.form['todoitem'], complete=False)
     db.session.add(todo)
+    db.session.commit()
+    current_user.todolist.append(todo)
     db.session.commit()
 
     return redirect(url_for('list'))
@@ -230,15 +233,9 @@ def task_delete(id):
     todo = Todo.query.filter_by(id=int(id)).first()
     db.session.delete(todo)
     db.session.commit()
-    
+    todo.todolist = []
+    db.session.commit()
     return redirect(url_for('list'))
-
-@app.route("/user/<string:username>")
-def user_posts(username):
-	page = request.args.get('page',1,type=int)
-	user = User.query.filter_by(username=username).first_or_404()
-	posts = Post.query.filter_by(author=user).order_by(Post.date_posted.desc()).paginate(page=page,per_page=5)
-	return render_template('user_posts.html', posts=posts, user=user)
 
 @app.route('/add_item', methods=['POST'])
 def add_item():

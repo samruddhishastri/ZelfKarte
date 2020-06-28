@@ -12,6 +12,11 @@ purchase = db.Table('purchase',
 	db.Column('item_id', db.Integer, db.ForeignKey('item.id'))
 )
 
+todolist = db.Table('todolist',
+	db.Column('user_id', db.Integer, db.ForeignKey('user.id')),
+	db.Column('list_id', db.Integer, db.ForeignKey('todo.id'))
+)
+
 class User(db.Model, UserMixin):
 	id = db.Column(db.Integer, primary_key=True)
 	username = db.Column(db.String(100), nullable=False)
@@ -51,6 +56,7 @@ class Todo(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     text = db.Column(db.String(200), nullable=False)
     complete = db.Column(db.Boolean)
+    listers = db.relationship('User', secondary=todolist, backref=db.backref('todolist', lazy='dynamic'))
 
 class Item(db.Model):
 	id = db.Column(db.Integer, primary_key=True)
