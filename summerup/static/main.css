@@ -69,7 +69,7 @@ hr:before {
   text-align: left;
   font-family: 'Montserrat', cursive;
   color: #14ffec;
-  overflow: hidden;
+  overflow: scroll;
   text-overflow: ellipsis; 
 }
 
@@ -94,7 +94,7 @@ hr:before {
   text-align: left;
   font-family: 'Montserrat', cursive;
   color: #14ffec;
-  overflow: hidden;
+  overflow: scroll;
   text-overflow: ellipsis; 
   }
 
@@ -111,7 +111,7 @@ hr:before {
   text-align: left;
   font-family: 'Montserrat', cursive;
   color: #14ffec;
-  overflow: hidden;
+  overflow: scroll;
   text-overflow: ellipsis; 
   }
 
@@ -195,7 +195,7 @@ html, .shoplist_body
   background: rgba(255,255,255,0.5);
   padding: 18px;
   margin: 6px 0;
-  overflow: hidden;
+  overflow: scroll;
   text-align: left;
   font-weight: 400;
   font-family: 'Architects Daughter', cursive;
