@@ -233,7 +233,7 @@
       <ul class="nav navbar-nav navbar-right">
         <li>
         <a class="nav-item nav-link mx-2 " href="{{ url_for('about') }}">ABOUT<i
-        class="fas fa-users fa-lg p-2 d-none d-md-inline"></i><!-- <span class="d-md-none"><i class="fas fa-users px-2"></i></span -->></a>
+        class="fas fa-users fa-lg p-2 d-none d-md-inline"></i><!-- <span class="d-md-none"><i class="fas fa-users px-2"></i></span --></a>
         <li><a class="nav-item nav-link mx-2 " href="{{ url_for('signup') }}">SIGN UP<i class="fas fa-user-plus fa-lg p-2 d-none d-md-inline"></i>
             <!-- <span class="d-md-none"><i class="fas fa-user-plus px-2"></i></span> -->
         </a>
@@ -298,13 +298,13 @@
 <!-- Container (About Section) -->
 <div id="about" class="container-fluid">
   <div class="row">
-    <div class="col-sm-8">
+    <div class="col-sm-8 col-lg-10">
       <h2>About Company Page</h2><br>
       <h4>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</h4><br>
       <p style="color:#14ffec;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
       <br><a href="{{ url_for('about') }}" class="btn btn-default btn-lg">Get in Touch</a>
     </div>
-    <div class="col-sm-4">
+    <div class="col-sm-4 col-lg-2">
       <!-- <span class="glyphicon glyphicon-signal logo"></span> -->
       <img src="{{ url_for('static', filename='logo/' + 'xyz.png') }}" height="500" width="300">
     </div>
