@@ -260,3 +260,8 @@ def add_item():
 @login_required
 def cart():
 	return render_template('qrcode.html')
+
+@app.route('/payment')
+@login_required
+def payment():
+	return render_template('payment.html')

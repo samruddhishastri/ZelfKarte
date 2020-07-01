@@ -1,4 +1,3 @@
-
 {% extends "layout.html" %}
 
 {% block nav %}
@@ -49,7 +48,14 @@
                 </tr>
                 {% endfor %}
             </tbody>
+            <tfoot>
+                <tr>
+                    <td>Total</td>
+                    <td>{{ current_user.purchase | sum(attribute='item_total')}}</td>
+                </tr>
+            </tfoot>
             </table>
+            <a href= "{{ url_for('payment') }}"><button type="button" class="btn btn-success btn-md">Pay Now</button></a> 
         </div>
 
        <div id="reader"></div>
