@@ -1,61 +1,588 @@
-{% extends "layout.html" %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Theme Made By www.w3schools.com -->
+  <title>Bootstrap Theme Company Page</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- smart phone css  -->
+<link href="assets/phone.css" rel="stylesheet" type="text/css" media="all and (min-width: 0px) and (max-width: 480px)" />
 
-{% block nav %}
-    <div class="navbar-nav ">
+<!-- Tablet -->
+<link href="assets/tablet.css" rel="stylesheet" type="text/css" media="all and (min-width: 481px) and (max-width: 800px)" />
+
+<!-- Desktop -->
+<link href="assets/desktop.css" rel="stylesheet" type="text/css" media="only screen and (min-width:801px)">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+    <script type="text/javascript" src = "{{ url_for('static', filename='main.js') }}" ></script>
+    <script src="{{ url_for('static', filename='html5-qrcode.min.js') }}"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Rock+Salt&display=swap" rel="stylesheet">
+    <script type="text/javascript"> (function() { var css = document.createElement('link'); css.href = 'https://use.fontawesome.com/releases/v5.1.0/css/all.css'; css.rel = 'stylesheet'; css.type = 'text/css'; document.getElementsByTagName('head')[0].appendChild(css); })(); </script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <style>
+  body {
+    font: 400 15px Lato, sans-serif;
+    line-height: 1.8;
+    background-color: #1B2631;
+  }
+
+  h1{
+    font-size: 28px;
+  }
+  h2 {
+    font-size: 24px;
+    text-transform: uppercase;
+    color: #FFFFFF;
+    font-weight: 600;
+    margin-bottom: 30px;
+  }
+  h4 {
+    font-size: 19px;
+    line-height: 1.375em;
+    color: #FFFFFF;
+    font-weight: 400;
+    margin-bottom: 30px;
+  }  
+  /*.jumbotron {
+    background-color: #14ffec;
+    color: #fff;
+    padding: 100px 25px;
+    font-family: Montserrat, sans-serif;
+  }*/
+
+  .container-fluid {
+    padding: 60px 50px;
+  }
+  .bg-grey {
+    background-color: #37424d;
+  }
+  .logo-small {
+    color: #14ffec;
+    font-size: 50px;
+  }
+  .logo {
+    color: #14ffec;
+    font-size: 200px;
+  }
+  .thumbnail {
+    padding: 0 0 15px 0;
+    border: none;
+    border-radius: 0;
+  }
+  .thumbnail img {
+    width: 100%;
+    height: 100%;
+    margin-bottom: 10px;
+  }
+  .carousel-control.right, .carousel-control.left {
+    background-image: none;
+    color: #14ffec;
+  }
+  .carousel-indicators li {
+    border-color: #14ffec;
+  }
+  .carousel-indicators li.active {
+    background-color: #14ffec;
+  }
+  .item h4 {
+    font-size: 19px;
+    line-height: 1.375em;
+    font-weight: 400;
+    font-style: italic;
+    margin: 70px 0;
+  }
+  .item span {
+    font-style: normal;
+  }
+  .panel {
+    border: 1px solid #14ffec; 
+    border-radius:0 !important;
+    transition: box-shadow 0.5s;
+  }
+  .panel:hover {
+    box-shadow: 5px 0px 40px rgba(0,0,0, .2);
+  }
+  .panel-footer .btn:hover {
+    border: 1px solid #14ffec;
+    background-color: #fff !important;
+    color: #14ffec;
+  }
+  .panel-heading {
+    color: #fff !important;
+    background-color: #14ffec !important;
+    padding: 25px;
+    border-bottom: 1px solid transparent;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+  }
+  .panel-footer {
+    background-color: white !important;
+  }
+  .panel-footer h3 {
+    font-size: 32px;
+  }
+  .panel-footer h4 {
+    color: #aaa;
+    font-size: 14px;
+  }
+  .panel-footer .btn {
+    margin: 15px 0;
+    background-color: #14ffec;
+    color: #fff;
+  }
+  .navbar {
+    margin-bottom: 0;
+    background-color: #1B2631;
+    z-index: 9999;
+    border: 0;
+    font-size: 12px !important;
+    line-height: 1.42857143 !important;
+    letter-spacing: 4px;
+    border-radius: 0;
+    font-family: Montserrat, sans-serif;
+  }
+  .navbar li a, .navbar .navbar-brand {
+    color: #fff !important;
+  }
+  .navbar-nav li a:hover, .navbar-nav li.active a {
+    color: #14ffec !important;
+    background-color: #fff !important;
+  }
+  .navbar-default .navbar-toggle {
+    border-color: transparent;
+    color: #fff !important;
+  }
+  footer .glyphicon {
+    font-size: 20px;
+    margin-bottom: 20px;
+    color: #14ffec;
+  }
+  .slideanim {visibility:hidden;}
+  .slide {
+    animation-name: slide;
+    -webkit-animation-name: slide;
+    animation-duration: 1s;
+    -webkit-animation-duration: 1s;
+    visibility: visible;
+  }
+  @keyframes slide {
+    0% {
+      opacity: 0;
+      transform: translateY(70%);
+    } 
+    100% {
+      opacity: 1;
+      transform: translateY(0%);
+    }
+  }
+  @-webkit-keyframes slide {
+    0% {
+      opacity: 0;
+      -webkit-transform: translateY(70%);
+    } 
+    100% {
+      opacity: 1;
+      -webkit-transform: translateY(0%);
+    }
+  }
+  @media screen and (max-width: 768px) {
+    .col-sm-4 {
+      text-align: center;
+      margin: 25px 0;
+    }
+    .btn-lg {
+      width: 100%;
+      margin-bottom: 35px;
+    }
+  }
+  @media screen and (max-width: 480px) {
+    .logo {
+      font-size: 150px;
+    }
+  }
+  </style>
+</head>
+<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
+<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top d-flex pt-1">
+<!-- <nav class="navbar navbar-default navbar-fixed-top"> -->
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      
+      <a class="navbar-brand brandName" href="#"><svg class="bi bi-cart-check" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+  <path fill-rule="evenodd" d="M11.354 5.646a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L8 8.293l2.646-2.647a.5.5 0 0 1 .708 0z"/>
+  <path fill-rule="evenodd" d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm7 0a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"/>
+</svg>Zelf Karte</a>
+                <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+                    aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button> -->
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav navbar-right">
+        <li>
         <a class="nav-item nav-link mx-2 " href="{{ url_for('about') }}">ABOUT<i
-        class="fas fa-users fa-lg p-2 d-none d-md-inline"></i><span class="d-md-none"><i class="fas fa-users px-2"></i></span></a>
-        <a class="nav-item nav-link mx-2 " href="{{ url_for('signup') }}">SIGN UP<i class="fas fa-user-plus fa-lg p-2 d-none d-md-inline"></i>
-            <span class="d-md-none"><i class="fas fa-user-plus px-2"></i></span>
+        class="fas fa-users fa-lg p-2 d-none d-md-inline"></i><!-- <span class="d-md-none"><i class="fas fa-users px-2"></i></span -->></a>
+        <li><a class="nav-item nav-link mx-2 " href="{{ url_for('signup') }}">SIGN UP<i class="fas fa-user-plus fa-lg p-2 d-none d-md-inline"></i>
+            <!-- <span class="d-md-none"><i class="fas fa-user-plus px-2"></i></span> -->
         </a>
-        <a class="nav-item nav-link mx-2 " href="{{ url_for('login') }}">LOGIN<i
-            class="fas fa-user fa-lg p-2 d-none d-md-inline"></i><span class="d-md-none"><i class="fas fa-user px-2"></i></span>
+        <li><a class="nav-item nav-link mx-2 " href="{{ url_for('login') }}">LOGIN<i
+            class="fas fa-user fa-lg p-2 d-none d-md-inline"></i><!-- <span class="d-md-none"><i class="fas fa-user px-2"></i></span> -->
         </a>
+      </ul>
     </div>
-{% endblock nav %}
+  </div>
+</nav>
 
-
-{% block carousel %}
-    <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
-        <div class="carousel-inner">
-            <div class="carousel-item active">
-                <img src="{{ url_for('static', filename='carousel/' + 'slide1.jpg') }}" class="d-block w-100" alt="" height="350">
-            </div>
-            <div class="carousel-item">
-                <img src="{{ url_for('static', filename='carousel/' + 'slide2.jpg') }}" class="d-block w-100" alt="" height="350">
-            </div>
-            <div class="carousel-item">
-                <img src="{{ url_for('static', filename='carousel/' + 'slide3.jpg') }}" class="d-block w-100" alt="" height="350">
-            </div>
-        </div>
+<!-- <div class="jumbotron text-center">
+  <h1>Company</h1> 
+  <p style="color:#14ffec;">We specialize in blablabla</p> 
+  <form>
+    <div class="input-group">
+      <input type="email" class="form-control" size="50" placeholder="Email Address" required>
+      <div class="input-group-btn">
+        <button type="button" class="btn btn-danger">Subscribe</button>
+      </div>
     </div>
-{% endblock carousel %}
-
-{% block content %}
-<div class="shownpart">
-    <div class="container">
-        <div class="row">
-            <h1 class="display-1 col-12">
-                <svg class="bi bi-cart-check" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                    <path fill-rule="evenodd" d="M11.354 5.646a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L8 8.293l2.646-2.647a.5.5 0 0 1 .708 0z"/>
-                    <path fill-rule="evenodd" d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm7 0a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"/>
-                </svg>
-            </h1>
-            <h1 class="display-3 col-12 py-3 brandName" style="font-family: 'Rock Salt', cursive;" >Zelf Karte</h1>
-        </div>
-
-        <hr class="row col-12">
-
-        <h4> ipsum dolor sit amet consectetur adipisicing elit cum voluptatum.
-        </h4>
-        <br>
-        <br>
-        <br>
-
-        <div class="d-md-flex justify-content-around mt-5">
-            <button type="button" class="btn btn-info btn-lg col-sm-6 mt-5 mt-md-0 col-md-4">INFORMATION and FAQs</button>
-            <a href="{{ url_for('complains') }}" class="btn btn-danger btn-lg col-sm-6 mt-5 mt-md-0 col-md-4">REVIEWS and COMPLAINTS</a>
-        </div> 
-    </div>
+  </form>
 </div>
-{% endblock content %}
-    
+ -->
+
+<div id="myCarousel" class="carousel slide text-center" data-ride="carousel"> 
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+      <li data-target="#myCarousel" data-slide-to="1"></li>
+      <li data-target="#myCarousel" data-slide-to="2"></li>
+    </ol>
+
+     <!-- Wrapper for slides -->
+    <div class="carousel-inner" role="listbox">
+      <div class="item active">
+        <img src="{{ url_for('static', filename='carousel/' + 'second.jpg') }}" class="d-block w-100" alt="" height="350">
+        <!-- <h4>"This company is the best. I am so happy with the result!"<br><span>Michael Roe, Vice President, Comment Box</span></h4> -->
+      </div>
+      <div class="item">
+        <img src="{{ url_for('static', filename='carousel/' + 'slide2.jpg') }}" class="d-block w-100" alt="" height="350">
+       <!--  <h4>"One word... WOW!!"<br><span>John Doe, Salesman, Rep Inc</span></h4> -->
+      </div>
+      <div class="item">
+         <img src="{{ url_for('static', filename='carousel/' + 'slide3.jpg') }}" class="d-block w-100" alt="" height="350">
+        <!-- <h4>"Could I... BE any more happy with this company?"<br><span>Chandler Bing, Actor, FriendsAlot</span></h4> -->
+      </div>
+    </div>
+ 
+    <!-- Left and right controls -->
+     <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+</div>
+
+<!-- Container (About Section) -->
+<div id="about" class="container-fluid">
+  <div class="row">
+    <div class="col-sm-8">
+      <h2>About Company Page</h2><br>
+      <h4>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</h4><br>
+      <p style="color:#14ffec;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+      <br><a href="{{ url_for('about') }}" class="btn btn-default btn-lg">Get in Touch</a>
+    </div>
+    <div class="col-sm-4">
+      <!-- <span class="glyphicon glyphicon-signal logo"></span> -->
+      <img src="{{ url_for('static', filename='logo/' + 'xyz.png') }}" height="500" width="300">
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid bg-grey">
+  <div class="row">
+    <div class="col-sm-4">
+      <span class="glyphicon glyphicon-globe logo slideanim"></span>
+    </div>
+    <div class="col-sm-8">
+      <h2>Our Values</h2><br>
+      <h4><strong>MISSION:</strong> Our mission lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</h4><br>
+      <p style="color:#14ffec;"><strong>VISION:</strong> Our vision Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    </div>
+  </div>
+</div>
+
+<!-- Container (Services Section) -->
+<div id="services" class="container-fluid text-center">
+  <h2>SERVICES</h2>
+  <h4>What we offer</h4>
+  <br>
+  <div class="row slideanim">
+    <div class="col-sm-4">
+      <!-- <span class="glyphicon glyphicon-off logo-small"></span> -->
+      <i class="fa fa-list logo-small"></i>
+      <h4>LIST DOWN</h4>
+      <p style="color:#14ffec;">Make a shopping list..</p>
+    </div>
+    <div class="col-sm-4">
+      <span class="fa fa-walking logo-small"></span>
+      <h4>WALK-IN TO THE STORE</h4>
+      <p style="color:#14ffec;">Simply visit the store..</p>
+    </div>
+    <div class="col-sm-4">
+      <span class="fas fa-box-open logo-small"></span>
+      <h4>PICK</h4>
+      <p style="color:#14ffec;">Pick your required items..</p>
+    </div>
+  </div>
+  <br><br>
+  <div class="row slideanim">
+    <div class="col-sm-4">
+      <span class="fa fa-qrcode logo-small"></span>
+      <h4>SCAN</h4>
+      <p style="color:#14ffec;">Scan the QR-Code..</p>
+    </div>
+    <div class="col-sm-4">
+      <span class="fa fa-shopping-cart logo-small"></span>
+      <h4>BUY</h4>
+      <p style="color:#14ffec;">Pay for the items..</p>
+    </div>
+    <div class="col-sm-4">
+      <span class="fa fa-edit logo-small"></span>
+      <h4>ANY SUGGESTIONS?</h4>
+      <p style="color:#14ffec;">Thanks for shopping..</p>
+    </div>
+  </div>
+</div>
+
+<!-- Container (Portfolio Section) -->
+<!-- <div id="portfolio" class="container-fluid text-center bg-grey">
+  <h2>Portfolio</h2><br>
+  <h4>What we have created</h4>
+  <div class="row text-center slideanim">
+    <div class="col-sm-4">
+      <div class="thumbnail">
+        <img src="paris.jpg" alt="Paris" width="400" height="300">
+        <p style="color:#14ffec;"><strong>Paris</strong></p>
+        <p style="color:#14ffec;">Yes, we built Paris</p>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class="thumbnail">
+        <img src="newyork.jpg" alt="New York" width="400" height="300">
+        <p style="color:#14ffec;"><strong>New York</strong></p>
+        <p style="color:#14ffec;">We built New York</p>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class="thumbnail">
+        <img src="sanfran.jpg" alt="San Francisco" width="400" height="300">
+        <p style="color:#14ffec;"><strong>San Francisco</strong></p>
+        <p style="color:#14ffec;">Yes, San Fran is ours</p>
+      </div>
+    </div>
+  </div><br>
+ -->  
+  <!-- <h2>What our customers say</h2>
+  <div id="myCarousel" class="carousel slide text-center" data-ride="carousel"> -->
+    <!-- Indicators -->
+    <!-- <ol class="carousel-indicators">
+      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+      <li data-target="#myCarousel" data-slide-to="1"></li>
+      <li data-target="#myCarousel" data-slide-to="2"></li>
+    </ol>
+
+     --><!-- Wrapper for slides -->
+<!--     <div class="carousel-inner" role="listbox">
+      <div class="item active">
+        <h4>"This company is the best. I am so happy with the result!"<br><span>Michael Roe, Vice President, Comment Box</span></h4>
+      </div>
+      <div class="item">
+        <h4>"One word... WOW!!"<br><span>John Doe, Salesman, Rep Inc</span></h4>
+      </div>
+      <div class="item">
+        <h4>"Could I... BE any more happy with this company?"<br><span>Chandler Bing, Actor, FriendsAlot</span></h4>
+      </div>
+    </div>
+ -->
+    <!-- Left and right controls -->
+  <!--   <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+</div>
+ -->
+<!-- Container (Pricing Section) -->
+<div id="pricing" class="container-fluid">
+  <div class="text-center">
+    <h2>Specialistaions</h2>
+    <h4>What we are</h4>
+  </div>
+  <div class="row slideanim">
+    <div class="col-sm-4 col-xs-12">
+      <div class="panel panel-default text-center">
+        <div class="panel-heading">
+          <h1>SUPPORT</h1>
+        </div>
+        <div class="panel-body">
+          <img src="{{ url_for('static', filename='logo/' + 'SUPPORT.png') }}" height="180" width="200">
+          <!-- <p style="color:#14ffec;"><strong>20</strong> Lorem</p>
+          <p style="color:#14ffec;"><strong>15</strong> Ipsum</p>
+          <p style="color:#14ffec;"><strong>5</strong> Dolor</p>
+          <p style="color:#14ffec;"><strong>2</strong> Sit</p>
+          <p style="color:#14ffec;"><strong>Endless</strong> Amet</p>
+         --></div>
+        <div class="panel-footer">
+          <h3>Approachable</h3>
+          <h4>our website is obliging and accessible </h4>
+          <!-- <button class="btn btn-lg">Sign Up</button> -->
+        </div>
+      </div>      
+    </div>     
+    <div class="col-sm-4 col-xs-12">
+      <div class="panel panel-default text-center">
+        <div class="panel-heading">
+          <h1>EXCLUSIVE</h1>
+        </div>
+        <div class="panel-body">
+          <img src="{{ url_for('static', filename='logo/' + 'group.png') }}" height="180" width="180">
+          <!-- <p style="color:#14ffec;"><strong>50</strong> Lorem</p>
+          <p style="color:#14ffec;"><strong>25</strong> Ipsum</p>
+          <p style="color:#14ffec;"><strong>10</strong> Dolor</p>
+          <p style="color:#14ffec;"><strong>5</strong> Sit</p>
+          <p style="color:#14ffec;"><strong>Endless</strong> Amet</p> -->
+        </div>
+        <div class="panel-footer">
+          <h3>Dedicated</h3>
+          <h4>we have a hard-working team for your assistance</h4>
+          <!-- <button class="btn btn-lg">Sign Up</button> -->
+        </div>
+      </div>      
+    </div>       
+    <div class="col-sm-4 col-xs-12">
+      <div class="panel panel-default text-center">
+        <div class="panel-heading">
+          <h1>HIGH-TECH</h1>
+        </div>
+        <div class="panel-body">
+          <img src="{{ url_for('static', filename='logo/' + 'tech.png') }}" height="180" width="180">
+          <!-- <p style="color:#14ffec;"><strong>100</strong> Lorem</p>
+          <p style="color:#14ffec;"><strong>50</strong> Ipsum</p>
+          <p style="color:#14ffec;"><strong>25</strong> Dolor</p>
+          <p style="color:#14ffec;"><strong>10</strong> Sit</p>
+          <p style="color:#14ffec;"><strong>Endless</strong> Amet</p>
+         --></div>
+        <div class="panel-footer">
+          <h3>Futuristic</h3>
+          <h4>efforts are ongoing to have best technology</h4>
+         <!--  <button class="btn btn-lg">Sign Up</button> -->
+        </div>
+      </div>      
+    </div>    
+  </div>
+</div>
+<!-- Container (Contact Section) -->
+<div id="contact" class="container-fluid bg-grey">
+  <h2 class="text-center">CONTACT</h2>
+  <div class="row">
+    <div class="col-sm-5">
+      <p style="color:#14ffec;">Contact us and we'll get back to you within 24 hours.</p>
+      <p style="color:#14ffec;"><span class="glyphicon glyphicon-map-marker"></span> Hyderabad,India</p>
+      <p style="color:#14ffec;"><span class="glyphicon glyphicon-phone"></span> xxxxxxxxxx</p>
+      <p style="color:#14ffec;"><span class="glyphicon glyphicon-envelope"></span> Zelfkarte@gmail.com</p>
+    </div>
+    <div class="col-sm-7 slideanim">
+      <div class="row">
+        <p align="right" style="color:#14ffec;">Have a look on what our users have to say about about us..</p>
+        <p align="right" style="color:#14ffec;">We are trying are best to fulfill the needs
+        of all aur customers..</p>
+        <!-- <p align="right" style="color:#14ffec;">Help us please-</p> -->
+        <h4 align="right">Let us know how we can improve...</h4>
+        
+          <a href="{{ url_for('complains') }}" class="btn btn-default btn-lg col-sm-6 mt-5 mt-md-0 col-md-4 pull-right">Feedback</a>
+        
+        <!-- <div class="col-sm-6 form-group">
+          <input class="form-control" id="name" name="name" placeholder="Name" type="text" required>
+        </div> -->
+        <!-- <div class="col-sm-6 form-group">
+          <input class="form-control" id="email" name="email" placeholder="Email" type="email" required>
+        </div> -->
+      </div>
+
+      <!-- <textarea class="form-control" id="comments" name="comments" placeholder="Comment" rows="5"></textarea><br>
+      <div class="row">
+        <div class="col-sm-12 form-group">
+          <button class="btn btn-default pull-right" type="submit">Send</button> -->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Image of location/map -->
+<!-- <img src="/w3images/map.jpg" class="w3-image w3-greyscale-min" style="width:100%"> -->
+
+<footer class="container-fluid text-center">
+  <a href="#myPage" title="To Top">
+    <span class="glyphicon glyphicon-chevron-up"></span>
+  </a>
+  <!-- <p style="color:#14ffec;">Bootstrap Theme Made By <a href="https://www.w3schools.com" title="Visit w3schools">www.w3schools.com</a></p> -->
+</footer>
+
+<script>
+$(document).ready(function(){
+  // Add smooth scrolling to all links in navbar + footer link
+  $(".navbar a, footer a[href='#myPage']").on('click', function(event) {
+    // Make sure this.hash has a value before overriding default behavior
+    if (this.hash !== "") {
+      // Prevent default anchor click behavior
+      event.preventDefault();
+
+      // Store hash
+      var hash = this.hash;
+
+      // Using jQuery's animate() method to add smooth page scroll
+      // The optional number (900) specifies the number of milliseconds it takes to scroll to the specified area
+      $('html, body').animate({
+        scrollTop: $(hash).offset().top
+      }, 900, function(){
+   
+        // Add hash (#) to URL when done scrolling (default click behavior)
+        window.location.hash = hash;
+      });
+    } // End if
+  });
+  
+  $(window).scroll(function() {
+    $(".slideanim").each(function(){
+      var pos = $(this).offset().top;
+
+      var winTop = $(window).scrollTop();
+        if (pos < winTop + 600) {
+          $(this).addClass("slide");
+        }
+    });
+  });
+})
+</script>
+
+</body>
+</html>
