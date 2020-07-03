@@ -23,17 +23,7 @@ It will generate a QR code at the mart which will be scanned by application and 
 
 ## Implementation
 The web-application is created using python3.  
-Non-General Libraries Required :
-
-
-* flask
-* flask_sqlalchemy
-* flask_wtf
-* flask_login
-* flask_bcrypt
-* wtforms
-* datetime
-* PIL (Pillow)
+The non-general libraries required are mentioned in 'requirements.txt' file.
 
 ## Installation
 * Clone the repo to your local machine 
