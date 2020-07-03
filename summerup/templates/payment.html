@@ -3,6 +3,14 @@
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script>
+  $(document).ready(function(){
+    $("#myModal").modal('show');
+  });
+</script>
 <style>
 body {
   font-family: Arial;
@@ -109,6 +117,21 @@ span.price {
 </style>
 </head>
 <body>
+
+  <div id="myModal" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">ATTENTION</h4>
+            </div>
+            <div class="modal-body">
+        <p>This website is primarily designed for testing purpose. Please DO NOT enter your actual card details. We DO NOT ensure security of your data.</p>
+                
+            </div>
+        </div>
+    </div>
+</div>
 
 <div class="row">
   <div class="col-75">
