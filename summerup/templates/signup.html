@@ -2,132 +2,18 @@
 <html lang="en">
 <head>
   <title>Zelf Karte</title>
+
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link href="assets/phone.css" rel="stylesheet" type="text/css" media="all and (min-width: 0px) and (max-width: 480px)" />
-  <link href="assets/tablet.css" rel="stylesheet" type="text/css" media="all and (min-width: 481px) and (max-width: 800px)" />
-  <link href="assets/desktop.css" rel="stylesheet" type="text/css" media="only screen and (min-width:801px)">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
-  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
-  <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
-  <script type="text/javascript" src = "{{ url_for('static', filename='main.js') }}" ></script>
-  <script src="{{ url_for('static', filename='html5-qrcode.min.js') }}"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Rock+Salt&display=swap" rel="stylesheet">
-  <script type="text/javascript"> (function() { var css = document.createElement('link'); css.href = 'https://use.fontawesome.com/releases/v5.1.0/css/all.css'; css.rel = 'stylesheet'; css.type = 'text/css'; document.getElementsByTagName('head')[0].appendChild(css); })(); </script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
   <style>
-    body {
-      font: 400 15px Lato, sans-serif;
-      line-height: 1.8;
-      background-color: #1B2631;
-  }
 
-  h1{
-      font-size: 28px;
-  }
-  h2 {
-      font-size: 24px;
-      text-transform: uppercase;
-      color: #FFFFFF;
-      font-weight: 600;
-      margin-bottom: 30px;
-  }
-  h4 {
-      font-size: 19px;
-      line-height: 1.375em;
-      color: #FFFFFF;
-      font-weight: 400;
-      margin-bottom: 30px;
-  }  
-
-  .container-fluid {
-      padding: 60px 50px;
-  }
-  .bg-grey {
-      background-color: #37424d;
-  }
-  .logo-small {
-      color: #14ffec;
-      font-size: 50px;
-  }
-  .logo {
-      color: #14ffec;
-      font-size: 200px;
-  }
-  .thumbnail {
-      padding: 0 0 15px 0;
-      border: none;
-      border-radius: 0;
-  }
-  .thumbnail img {
-      width: 100%;
-      height: 100%;
-      margin-bottom: 10px;
-  }
-  .carousel-control.right, .carousel-control.left {
-      background-image: none;
-      color: #14ffec;
-  }
-  .carousel-indicators li {
-      border-color: #14ffec;
-  }
-  .carousel-indicators li.active {
-      background-color: #14ffec;
-  }
-  .item h4 {
-      font-size: 19px;
-      line-height: 1.375em;
-      font-weight: 400;
-      font-style: italic;
-      margin: 70px 0;
-  }
-  .item span {
-      font-style: normal;
-  }
-  .panel {
-      border: 1px solid #14ffec; 
-      border-radius:0 !important;
-      transition: box-shadow 0.5s;
-  }
-  .panel:hover {
-      box-shadow: 5px 0px 40px rgba(0,0,0, .2);
-  }
-  .panel-footer .btn:hover {
-      border: 1px solid #14ffec;
-      background-color: #fff !important;
-      color: #14ffec;
-  }
-  .panel-heading {
-      color: #fff !important;
-      background-color: #14ffec !important;
-      padding: 25px;
-      border-bottom: 1px solid transparent;
-      border-top-left-radius: 0px;
-      border-top-right-radius: 0px;
-      border-bottom-left-radius: 0px;
-      border-bottom-right-radius: 0px;
-  }
-  .panel-footer {
-      background-color: white !important;
-  }
-  .panel-footer h3 {
-      font-size: 32px;
-  }
-  .panel-footer h4 {
-      color: #aaa;
-      font-size: 14px;
-  }
-  .panel-footer .btn {
-      margin: 15px 0;
-      background-color: #14ffec;
-      color: #fff;
-  }
-  .navbar {
+    .navbar {
       margin-bottom: 0;
-      background-color: #1B2631;
+      background-color: #1b2631;
       z-index: 9999;
       border: 0;
       font-size: 12px !important;
@@ -135,314 +21,264 @@
       letter-spacing: 4px;
       border-radius: 0;
       font-family: Montserrat, sans-serif;
-  }
-  .navbar li a, .navbar .navbar-brand {
+    }
+    .navbar li a, .navbar .navbar-brand {
       color: #fff !important;
-  }
-  .navbar-nav li a:hover, .navbar-nav li.active a {
+    }
+    .navbar-nav li a:hover, .navbar-nav li.active a {
       color: #14ffec !important;
       background-color: #fff !important;
-  }
-  .navbar-default .navbar-toggle {
+    }
+    .navbar-default .navbar-toggle {
       border-color: transparent;
       color: #fff !important;
-  }
-  footer .glyphicon {
-      font-size: 20px;
-      margin-bottom: 20px;
-      color: #14ffec;
-  }
-  .slideanim {visibility:hidden;}
-  .slide {
-      animation-name: slide;
-      -webkit-animation-name: slide;
-      animation-duration: 1s;
-      -webkit-animation-duration: 1s;
-      visibility: visible;
-  }
-  @keyframes slide {
-      0% {
-        opacity: 0;
-        transform: translateY(70%);
-    } 
-    100% {
-        opacity: 1;
-        transform: translateY(0%);
     }
-}
-@-webkit-keyframes slide {
-  0% {
-    opacity: 0;
-    -webkit-transform: translateY(70%);
-} 
-100% {
-    opacity: 1;
-    -webkit-transform: translateY(0%);
-}
-}
-@media screen and (max-width: 768px) {
-  .col-sm-4 {
-    text-align: center;
-    margin: 25px 0;
-}
-.btn-lg {
-    width: 100%;
-    margin-bottom: 35px;
-}
-}
-@media screen and (max-width: 480px) {
-  .logo {
-    font-size: 150px;
-}
-}
-.wrap-login100{
-  width: 520px;
-  min-height: 100vh;
-  background: #fff;
-  border-radius: 2px;
-  position: relative;
-  float: right;
-}
 
-.wrap-input100 {
-  width: 100%;
-  position: relative;
-  border-bottom: 2px solid #dbdbdb;
-  margin-bottom: 45px;
-}
+    .wrap-login100{
+      width: 520px;
+      min-height: 100vh;
+      background: #fff;
+      border-radius: 2px;
+      position: relative;
+      float: right;
+    }
 
-.input100 {
-  display: block;
-  width: 100%;
-  height: 50px;
-  background: transparent;
-  font-family: Poppins-Regular;
-  font-size: 22px;
-  color: #555555;
-  line-height: 1.2;
-  padding: 0 2px;
-}
+    .wrap-input100 {
+      width: 100%;
+      position: relative;
+      border-bottom: 2px solid #dbdbdb;
+      margin-bottom: 45px;
+    }
 
-.label-input100 {
-  font-family: Poppins-SemiBold;
-  font-size: 18px;
-  color: #999999;
-  line-height: 1.2;
-  padding-left: 2px;
-}
+    .input100 {
+      display: block;
+      width: 100%;
+      height: 50px;
+      background: transparent;
+      font-family: Poppins-Regular;
+      font-size: 22px;
+      color: white;
+      line-height: 1.2;
+      padding: 0 2px;
+    }
 
-.container-login100 {
-  width: 100%;  
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -moz-box;
-  display: -ms-flexbox;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: stretch;
-  flex-wrap: wrap;
-}
+    .label-input100 {
+      font-family: Poppins-SemiBold;
+      font-size: 18px;
+      color: #999999;
+      line-height: 1.2;
+      padding-left: 2px;
+    }
 
-.login100-more {
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-  width: calc(100% - 520px);
-  position: relative;
-  z-index: 1;
-}
+    .container-login100 {
+      width: 100%;  
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -moz-box;
+      display: -ms-flexbox;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: stretch;
+      flex-wrap: wrap;
+    }
 
-.login100-more::before {
-  content: "";
-  display: block;
-  position: absolute;
-  z-index: -1;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  background: #e8519e;
-  background: -webkit-linear-gradient(bottom, #000d1a, #009999);
-  background: -o-linear-gradient(bottom, #000d1a, #009999);
-  background: -moz-linear-gradient(bottom, #000d1a, #009999);
-  background: linear-gradient(bottom, #000d1a, #009999);
-  opacity: 0.8;
-}
-</style>
+    .login100-more {
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+      width: calc(100% - 520px);
+      position: relative;
+      z-index: 1;
+    }
+
+    .login100-more::before {
+      content: "";
+      display: block;
+      position: absolute;
+      z-index: -1;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      background: #e8519e;
+      background: -webkit-linear-gradient(bottom, #000d1a, #009999);
+      background: -o-linear-gradient(bottom, #000d1a, #009999);
+      background: -moz-linear-gradient(bottom, #000d1a, #009999);
+      background: linear-gradient(bottom, #000d1a, #009999);
+      opacity: 0.8;
+    }
+  </style>
 </head>
-<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
-  <div class="limiter">
-      <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top d-flex pt-1">
-        <!-- <nav class="navbar navbar-default navbar-fixed-top"> -->
-          <div class="container">
-            <div class="navbar-header">
-              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>                        
-            </button>
+<body>
 
-            <a class="navbar-brand brandName" href="#"><svg class="bi bi-cart-check" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                <path fill-rule="evenodd" d="M11.354 5.646a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L8 8.293l2.646-2.647a.5.5 0 0 1 .708 0z"/>
-                <path fill-rule="evenodd" d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm7 0a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"/>
-            </svg>Zelf Karte</a>
-        </div>
-        <div class="collapse navbar-collapse" id="myNavbar">
-          <ul class="nav navbar-nav navbar-right">
-            <li>
-              <a class="nav-item nav-link mx-2 " href="{{ url_for('launch') }}">HOME<i
-                class="fas fa-home fa-lg p-2 d-none d-md-inline"></i></a>
-                <li><a class="nav-item nav-link mx-2 " href="{{ url_for('about') }}">ABOUT<i class="fas fa-users fa-lg p-2 d-none d-md-inline"></i>
-                </a>
-                <li><a class="nav-item nav-link mx-2 " href="{{ url_for('login') }}">LOGIN<i
-                  class="fas fa-user-plus fa-lg p-2 d-none d-md-inline"></i>
-              </a>
-          </ul>
-      </div>
+ <nav class="navbar navbar-inverse navbar-fixed-top navbar-dark bg-dark">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <a class="navbar-brand" href="#"><a class="navbar-brand brandName" href="#"><svg class="bi bi-cart-check" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+        <path fill-rule="evenodd" d="M11.354 5.646a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L8 8.293l2.646-2.647a.5.5 0 0 1 .708 0z"/>
+        <path fill-rule="evenodd" d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm7 0a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"/>
+      </svg>Zelf Karte</a>
+    </div>
+    <div class="collapse navbar-collapse nav navbar-nav navbar-right" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li><a class="nav-item nav-link mx-2 " href="{{ url_for('launch') }}">HOME<i class="fas fa-home fa-lg p-2 d-none d-md-inline"></i></a></li>
+        <li><a class="nav-item nav-link mx-2 " href="{{ url_for('about') }}">ABOUT<i class="fas fa-users fa-lg p-2 d-none d-md-inline"></i></a></li>
+        <li><a class="nav-item nav-link mx-2 " href="{{ url_for('login') }}">LOGIN<i class="fas fa-user fa-lg p-2 d-none d-md-inline"></i></a></li>
+      </ul>
+    </div>
   </div>
-</nav>
+</nav> 
+
+<div style="height: 45px;"></div>
+
 {% with messages = get_flashed_messages(with_categories=true) %}
-              {% if messages %}
-                {% for category, message in messages %}
-                <div class='alert alert-{{ category }}'>
-                    {{ message }}
-                </div>  
-                {% endfor%}
-                {% endif %}
-          {% endwith %}
+{% if messages %}
+{% for category, message in messages %}
+<div class='alert alert-{{ category }}'>
+  {{ message }}
+</div>  
+{% endfor%}
+{% endif %}
+{% endwith %}
 <div class="container-login100">
-    <div class="login100-more" style="background-image:url('/static/background/shopping.jpeg') "></div>
+  <div class="login100-more" style="background-image:url('/static/background/shopping.jpeg') "></div>
 
-    <div class='wrap-login100' style="padding-left:50px; padding-right: 50px; padding-top: 72px; padding-bottom: 50px;">
-      <h1 class="a" align="center">Signup</h1>
-      <div class="content-section">
-        <form method="POST" action="">
-          {{ form.hidden_tag() }}
-          <fieldset class="form-group login100-form">
-            <div class="form-group wrap-input100">
-                {{ form.username.label(class="form-control-label label-input100") }}
+  <div class='wrap-login100' style="padding-left:50px; padding-right: 50px; padding-top: 72px; padding-bottom: 50px; background-color: #1B2631;">
+    <h1 style="color: white; font-family: serif;" align="center">Signup</h1>
+    <br>
+    <br>
+    <div class="content-section">
+      <form method="POST" action="">
+        {{ form.hidden_tag() }}
+        <fieldset class="form-group login100-form">
+          <div class="form-group wrap-input100">
+            {{ form.username.label(class="form-control-label label-input100") }}
 
-                {% if form.username.errors %}
-                {{ form.username(class="form-control form-control-lg is-invalid input100") }}
-                <div class="invalid-feedback">
-                    {% for error in form.username.errors %}
-                    <span>{{ error }}</span>
-                    {% endfor %}
-                </div>
-                {% else %}
-                {{ form.username(class="form-control form-control-lg input100") }}
-                {% endif %}
+            {% if form.username.errors %}
+            {{ form.username(class="form-control form-control-lg is-invalid input100") }}
+            <div class="invalid-feedback">
+              {% for error in form.username.errors %}
+              <span style="color: red">{{ error }}</span>
+              {% endfor %}
             </div>
+            {% else %}
+            {{ form.username(class="form-control form-control-lg input100") }}
+            {% endif %}
+          </div>
 
-            <div class="form-group wrap-input100">
-              {{ form.email.label(class="form-control-label label-input100") }}
-              {% if form.email.errors %}
-              {{ form.email(class="form-control form-control-lg is-invalid input100") }}
-              <div class="invalid-feedback">
-                {% for error in form.email.errors %}
-                <span>{{ error }}</span>
-                {% endfor %}
+          <div class="form-group wrap-input100">
+            {{ form.email.label(class="form-control-label label-input100") }}
+            {% if form.email.errors %}
+            {{ form.email(class="form-control form-control-lg is-invalid input100") }}
+            <div class="invalid-feedback">
+              {% for error in form.email.errors %}
+              <span style="color: red">{{ error }}</span>
+              {% endfor %}
             </div>
             {% else %}
             {{ form.email(class="form-control form-control-lg input100") }}
             {% endif %}
-        </div>
+          </div>
 
-        <div class="form-group wrap-input100">
-          {{ form.password.label(class="form-control-label label-input100") }}
+          <div class="form-group wrap-input100">
+            {{ form.password.label(class="form-control-label label-input100") }}
 
-          {% if form.password.errors %}
-          {{ form.password(class="form-control form-control-lg is-invalid input100") }}class="inp
-          <div class="invalid-feedback">
-            {% for error in form.password.errors %}
-            <span>{{ error }}</span>
-            {% endfor %}
-        </div>
-        {% else %}
-        {{ form.password(class="form-control form-control-lg input100") }}
-        {% endif %}
-        <a><i class="fa fa-eye" onclick="myFunction_signup_password()" style="color:black; cursor: pointer;"></i></a>
+            {% if form.password.errors %}
+            {{ form.password(class="form-control form-control-lg is-invalid input100") }}
+            <div class="invalid-feedback">
+              {% for error in form.password.errors %}
+              <span style="color: red">{{ error }}</span>
+              {% endfor %}
+            </div>
+            {% else %}
+            {{ form.password(class="form-control form-control-lg input100") }}
+            {% endif %}
+            <a><i class="fa fa-eye" onclick="myFunction_signup_password()" style="color:white; cursor: pointer;"></i></a>
+          </div>
+
+          <div class="form-group wrap-input100">
+            {{ form.confirm_password.label(class="form-control-label label-input100") }}
+
+            {% if form.confirm_password.errors %}
+            {{ form.confirm_password(class="form-control form-control-lg is-invalid input100") }}
+            <div class="invalid-feedback">
+              {% for error in form.confirm_password.errors %}
+              <span style="color: red">{{ error }}</span>
+              {% endfor %}
+            </div>
+            {% else %}
+            {{ form.confirm_password(class="form-control form-control-lg input100") }}
+            {% endif %}
+            <a><i class="fa fa-eye" onclick="myFunction_signup_confirm_password()" style="color:white; cursor: pointer;"></i></a>
+          </div>
+        </fieldset>
+        <p class="text-muted">BY CREATINNG AN ACCOUNT, YOU AGREE TO OUR <a class="ml-2" href="{{ url_for('login') }}">TERMS AND CONDITIONS</a> AND 
+          <a class="ml-2" href="{{ url_for('login') }}">PRIVACY POLICY</a>.</p>
+          <div class="form-group">
+            {{ form.submit(class="btn btn-outline-info") }}
+          </div>
+        </form>
+      </div>
+      <div class="border-top pt-3">
+        <small class="text-muted">
+          Already Have An Account? <a class="ml-2" href="{{ url_for('login') }}">Sign In</a>
+        </small>
+      </div>
     </div>
+  </div>
+  <script>
+    $(document).ready(function(){
 
-    <div class="form-group wrap-input100">
-      {{ form.confirm_password.label(class="form-control-label label-input100") }}
+      $(".navbar a, footer a[href='#myPage']").on('click', function(event) {
+        if (this.hash !== "") {
+          event.preventDefault();
 
-      {% if form.confirm_password.errors %}
-      {{ form.confirm_password(class="form-control form-control-lg is-invalid input100") }}
-      <div class="invalid-feedback">
-        {% for error in form.confirm_password.errors %}
-        <span>{{ error }}</span>
-        {% endfor %}
-    </div>
-    {% else %}
-    {{ form.confirm_password(class="form-control form-control-lg input100") }}
-    {% endif %}
-    <a><i class="fa fa-eye" onclick="myFunction_signup_confirm_password()" style="color:black; cursor: pointer;"></i></a>
-</div>
-</fieldset>
-<p>BY CREATINNG AN ACCOUNT, YOU AGREE TO OUR <a class="ml-2" href="{{ url_for('login') }}">TERMS AND CONDITIONS</a> AND 
-    <a class="ml-2" href="{{ url_for('login') }}">PRIVACY POLICY</a>.</p>
-    <div class="form-group">
-        {{ form.submit(class="btn btn-outline-info") }}
-    </div>
-</form>
-</div>
-<div class="border-top pt-3">
-    <small class="text-muted">
-        Already Have An Account? <a class="ml-2" href="{{ url_for('login') }}">Sign In</a>
-    </small>
-</div>
-</div>
-</div>
-</div>
-<script>
-  $(document).ready(function(){
-  
-  $(".navbar a, footer a[href='#myPage']").on('click', function(event) {
-    if (this.hash !== "") {
-      event.preventDefault();
-
-      var hash = this.hash;
-      $('html, body').animate({
-        scrollTop: $(hash).offset().top
-    }, 900, function(){
-        window.location.hash = hash;
-    });
-    }
-});
-  
-  $(window).scroll(function() {
-    $(".slideanim").each(function(){
-      var pos = $(this).offset().top;
-
-      var winTop = $(window).scrollTop();
-      if (pos < winTop + 600) {
-        $(this).addClass("slide");
-    }
-});
-});
-})
-</script>
-<script type="text/javascript">
-  function myFunction_signup_password(){
-        var x = document.getElementById('password');
-        if(x.type=='password'){
-            x.type = 'text';
-        } 
-        else{
-            x.type = 'password';
+          var hash = this.hash;
+          $('html, body').animate({
+            scrollTop: $(hash).offset().top
+          }, 900, function(){
+            window.location.hash = hash;
+          });
         }
+      });
+
+      $(window).scroll(function() {
+        $(".slideanim").each(function(){
+          var pos = $(this).offset().top;
+
+          var winTop = $(window).scrollTop();
+          if (pos < winTop + 600) {
+            $(this).addClass("slide");
+          }
+        });
+      });
+    })
+  </script>
+  <script type="text/javascript">
+    function myFunction_signup_password(){
+      var x = document.getElementById('password');
+      if(x.type=='password'){
+        x.type = 'text';
+      } 
+      else{
+        x.type = 'password';
+      }
     }
 
     function myFunction_signup_confirm_password(){
-        var x = document.getElementById('confirm_password');
-        if(x.type=='password'){
-            x.type = 'text';
-        }
-        else{
-            x.type = 'password';
-        }
+      var x = document.getElementById('confirm_password');
+      if(x.type=='password'){
+        x.type = 'text';
+      }
+      else{
+        x.type = 'password';
+      }
     }  
-</script>
+  </script>
 </body>
 </html>
