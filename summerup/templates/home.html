@@ -13,9 +13,14 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+  <link href="https://fonts.googleapis.com/css2?family=Caveat&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet">
 
   <style>
-  
+  html
+ {
+ 	scroll-behavior: smooth;
+ }
   body {
     font: 400 15px Lato, sans-serif;
     line-height: 1.8;
@@ -41,7 +46,7 @@
     margin-bottom: 30px;
   }  
   .container-fluid {
-    padding: 60px 50px;
+  	padding: 60px 50px;
   }
   
   .bg-grey {
@@ -249,15 +254,6 @@
     </div>
   </div>
 </nav>
-{% with messages = get_flashed_messages(with_categories=true) %}
-              {% if messages %}
-                {% for category, message in messages %}
-                <div class='alert alert-{{ category }}'>
-                    {{ message }}
-                </div>  
-                {% endfor%}
-                {% endif %}
-          {% endwith %}
 
 <div id="myCarousel" class="carousel slide text-center" data-ride="carousel"> 
     <ol class="carousel-indicators">
@@ -268,13 +264,13 @@
 
     <div class="carousel-inner" role="listbox">
       <div class="item active">
-        <img src="{{ url_for('static', filename='carousel/' + 'second.jpg') }}" class="d-block w-100" alt="" height="350">
+        <img src="{{ url_for('static', filename='carousel/' + 'sale2.jpg') }}" class="d-block w-100" alt="" height="350">
       </div>
       <div class="item">
-        <img src="{{ url_for('static', filename='carousel/' + 'slide2.jpg') }}" class="d-block w-100" alt="" height="350">
+        <img src="{{ url_for('static', filename='carousel/' + 'sale1.jpg') }}" class="d-block w-100" alt="" height="350">
       </div>
       <div class="item">
-         <img src="{{ url_for('static', filename='carousel/' + 'slide3.jpg') }}" class="d-block w-100" alt="" height="350">
+         <img src="{{ url_for('static', filename='carousel/' + 'second.jpg') }}" class="d-block w-100" alt="" height="350">
       </div>
     </div>
      <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
@@ -287,129 +283,54 @@
     </a>
   </div>
 </div>
-<div id="about" class="container-fluid">
+{% with messages = get_flashed_messages(with_categories=true) %}
+              {% if messages %}
+                {% for category, message in messages %}
+                <div class='alert alert-{{ category }}'>
+                    {{ message }}
+                </div>  
+                {% endfor%}
+                {% endif %}
+          {% endwith %}
+<div class="container bg-grey" style="padding: 60px 100px;
+margin-top: 5rem; 
+    border-radius: 25px;">
   <div class="row">
-    <div class="col-sm-8 col-lg-10">
-      <h2>About Company Page</h2><br>
-      <h4>Are you tired of waiting in long queues for your turn at the billing counter? Want to have a shopping experience where you don't have to carry your wallet?</h4><br>
-      <p style="color:#14ffec;">Zelf Karte brings a revolutionary change in the traditional self-service shopping stores. We offer a seamless shopping experience to our customers, where you enter our store, grab what you want and leave and all this without even stopping for a second. Our high-end technology offers a cashless digital shopping platform where everything you buy adds up to your digital cart on a scan and payment is done online. It is a revolution in the world of traditional convenient stores.</p>
-      <br><a href="{{ url_for('about') }}" class="btn btn-default btn-lg">Get in Touch</a>
+    <div class="col-sm-4">
+      <img src="https://img.icons8.com/doodle/48/000000/man-in-headphones.png"/ style="height: 20rem">
     </div>
-    <div class="col-sm-4 col-lg-2">
-      <img src="{{ url_for('static', filename='logo/' + 'xyz.png') }}" height="500" width="300">
-    </div>
-    
-</div>
-
-<div class="container-fluid bg-grey">
-  <div class="row">
-    <div class="col-sm-4 col-lg-2">
-      <span class="fas fa-chalkboard-teacher logo slideanim"></span>
-    </div>
-    <div class="col-sm-8 col-lg-10">
-      <h2>Basic Idea</h2><br>
-      <h4><strong>Consider some situations:</strong><br> 
-        1. You went shopping in a mart and spent couple of hours choosing items with best combination of quality and discount (The generic middle class startegy ;). You are tired and then you see a long queue at the biling counter. Clearly this isn't happy shopping ? <br>
-        2. Imagine a virus got spread in the country which spreads rapidily through human interaction and now you have to maintain 'Social Distancing'(sounds familiar huh?:). Now how will you buy your essential items to stay quarantined in your house with minimal human interaction ?
-      </h4><br>
-      <p style="color:#14ffec;"><strong>SOLUTION: ZELF KARTE</strong><br>
-       The Basic Idea behined Zelf Karte is to minimize human involvement in the process of shopping and thus make transactions faster.
-
-       The web-application serves as the platform to perform the transactions online through digital currency. It also offers to explore the available items in the mart and prepare a shopping list beforehand.
-
-       It will generate a QR code at the mart which will be scanned by application and transcation would be performed.</p>
+    <div class="col-sm-8 ">
+    	<button class="btn btn-info btn-lg" id="x" onclick="typeWriter()">ASSISTANCE</button>
+      <h2 id="toodles-intro" style="font-family: 'Roboto Mono', monospace; font-size: 3rem; text-align: center;"></h2><br>
+      <button class="btn btn-success btn-lg slideanim" id="toodles-p-btn" onclick="toodlesContent()" style="display: none;">LET'S GO</button>
+      <p id="toodles-p" style="color:#14ffec; font-family: 'Caveat', cursive; font-size: 3rem; display: none;">
+      	Toodles says,
+      	<br>
+      	here we go, list up items <a href="{{ url_for('list') }}" class="btn btn-primary btn-lg mx-2 px-2" style="float: right;"><strong>LIST</strong></a>
+      	<br>
+      	oh, your list is ready, find the product  <a href="#search-bar" class="btn btn-info btn-lg mx-2 px-2" style="float: right;"><strong>SEARCH PRODUCT</strong></a>
+      	<br>
+      	found it, good choice,<br>
+      	scan the code right here <a href="{{ url_for('qrcode') }}" class="btn btn-success btn-lg mx-2 px-2" style="float: right;"><strong>SCAN</strong></a>
+      	<br>
+      	your things are added to your ZELF KARTE cart, make them yours just in few steps which are <a href="{{ url_for('qrcode') }}" class="btn btn-warning btn-lg mx-2 px-2" ><strong>SCAN</strong> </a>then go to CART and PAY
+      	<br>
+      	thanks for shopping, hope you like it, don't forget to tell your exprience <a href="#contact" class="btn btn-danger btn-lg mx-2 px-2" style="float: right;"><strong>FEEDBACK</strong></a>
+       </p>
     </div>
   </div>
 </div>
-<div id="services" class="container-fluid text-center">
-  <h2>SERVICES</h2>
-  <h4>What we offer</h4>
-  <br>
-  <div class="row slideanim">
-    <div class="col-sm-4">
-      <i class="fa fa-list logo-small"></i>
-      <h4>LIST DOWN</h4>
-      <p style="color:#14ffec;">Make a shopping list..</p>
-    </div>
-    <div class="col-sm-4">
-      <span class="fa fa-walking logo-small"></span>
-      <h4>WALK-IN THE STORE</h4>
-      <p style="color:#14ffec;">Simply visit the store..</p>
-    </div>
-    <div class="col-sm-4">
-      <span class="fas fa-box-open logo-small"></span>
-      <h4>PICK</h4>
-      <p style="color:#14ffec;">Pick your required items..</p>
-    </div>
-  </div>
-  <br><br>
-  <div class="row slideanim">
-    <div class="col-sm-4">
-      <span class="fa fa-qrcode logo-small"></span>
-      <h4>SCAN</h4>
-      <p style="color:#14ffec;">Scan the QR-Code..</p>
-    </div>
-    <div class="col-sm-4">
-      <span class="fa fa-shopping-cart logo-small"></span>
-      <h4>BUY</h4>
-      <p style="color:#14ffec;">Pay for the items..</p>
-    </div>
-    <div class="col-sm-4">
-      <span class="fa fa-edit logo-small"></span>
-      <h4>ANY SUGGESTIONS?</h4>
-      <p style="color:#14ffec;">Thanks for shopping..</p>
-    </div>
-  </div>
+<!-- here comes the product list which i cant do now because it requires alot of code like sorting products according the person and then suggesting it -->
+<div id="search-bar" >
+	<div class="text-center">
+    <h2 style="margin-top: 5em">SEARCH PRODUCT</h2>
+    <div class="justify-content-around">
+  <input type="text" placeholder="Search" style="width: 80%;
+    border-radius: 5px;
+    margin-bottom: 5rem;">
+    <button class="btn btn-success" type="submit"><span class="glyphicon glyphicon-search"></span></button>
+</div>      
 </div>
-<div id="pricing" class="container-fluid">
-  <div class="text-center">
-    <h2>Specialistaions</h2>
-    <h4>What we are</h4>
-  </div>
-  <div class="row slideanim">
-    <div class="col-sm-4 col-xs-12">
-      <div class="panel panel-default text-center">
-        <div class="panel-heading">
-          <h1>SUPPORT</h1>
-        </div>
-        <div class="panel-body">
-          <img src="{{ url_for('static', filename='logo/' + 'SUPPORT.png') }}" height="180" width="200">
-          </div>
-        <div class="panel-footer">
-          <h3>Approachable</h3>
-          <h4>our website is obliging and accessible </h4>
-        </div>
-      </div>      
-    </div>     
-    <div class="col-sm-4 col-xs-12">
-      <div class="panel panel-default text-center">
-        <div class="panel-heading">
-          <h1>EXCLUSIVE</h1>
-        </div>
-        <div class="panel-body">
-          <img src="{{ url_for('static', filename='logo/' + 'group.png') }}" height="180" width="180">
-        </div>
-        <div class="panel-footer">
-          <h3>Dedicated</h3>
-          <h4>we have a hard-working team for your assistance</h4>
-        </div>
-      </div>      
-    </div>       
-    <div class="col-sm-4 col-xs-12">
-      <div class="panel panel-default text-center">
-        <div class="panel-heading">
-          <h1>HIGH-TECH</h1>
-        </div>
-        <div class="panel-body">
-          <img src="{{ url_for('static', filename='logo/' + 'tech.png') }}" height="180" width="180">
-        </div>
-        <div class="panel-footer">
-          <h3>Futuristic</h3>
-          <h4>efforts are ongoing to have best technology</h4>
-        </div>
-      </div>      
-    </div>    
-  </div>
 </div>
 
 <div id="contact" class="container-fluid bg-grey">
@@ -436,6 +357,7 @@
     </div>
   </div>
 </div>
+
 
 <footer class="container-fluid text-center">
   <a href="#myPage" title="To Top">
@@ -472,5 +394,30 @@ $(document).ready(function(){
 })
 </script>
 
+<script>
+	$(document).ready(function(){
+  $("#x").click(function(){
+    $(this).hide();
+    $('#toodles-p-btn').fadeToggle('slow');
+  });
+ });
+var i = 0;
+var txt = ' hello, i am toodles and i will guide you through this store and webapp.';
+var speed = 70;
+
+function typeWriter() {
+  if (i < txt.length) {
+    document.getElementById("toodles-intro").innerHTML += txt.charAt(i);
+    i++;
+    setTimeout(typeWriter, speed);
+  }
+}
+  function toodlesContent() {
+            $("#toodles-p").animate({
+                width: "toggle"
+            });
+    $('#toodles-p-btn').fadeToggle('slow');
+  }
+</script>
 </body>
 </html>
