@@ -222,38 +222,52 @@
       font-size: 150px;
     }
   }
+
   </style>
 </head>
-<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
-<nav class="navbar navbar-expand-md navbar-dark bg-dark navbar-fixed-top d-flex pt-1">
-  <div class="container">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>                        
-      </button>
-      
-      <a class="navbar-brand brandName" href="#"><svg class="bi bi-cart-check" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-  <path fill-rule="evenodd" d="M11.354 5.646a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L8 8.293l2.646-2.647a.5.5 0 0 1 .708 0z"/>
-  <path fill-rule="evenodd" d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm7 0a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"/>
-</svg>Zelf Karte</a>
+<body>
+  <nav class="navbar navbar-inverse navbar-fixed-top navbar-dark bg-dark">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>                     
+                </button>
+                <a class="navbar-brand" href="#"><a class="navbar-brand brandName" href="#"><svg class="bi bi-cart-check" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" d="M11.354 5.646a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L8 8.293l2.646-2.647a.5.5 0 0 1 .708 0z"/>
+                    <path fill-rule="evenodd" d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm7 0a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"/>
+                </svg>Zelf Karte
+              </a>
+          </div>
+        <div class="collapse navbar-collapse nav navbar-nav navbar-right" id="myNavbar">
+            <ul class="nav navbar-nav">
+
+                <li><a class="nav-item nav-link mx-2 " href="{{ url_for('list') }}">LIST<i class="fas fa-list-alt fa-lg p-2 d-none d-md-inline"></i></a></li>
+                
+                <li><a class="nav-item nav-link mx-2 " href="{{ url_for('qrcode') }}">SCAN<i class="fas fa-qrcode fa-lg p-2 d-none d-md-inline"></i></a></li>
+
+
+                <li><a class="nav-item nav-link mx-2 " href="{{ url_for('account') }}">ACCOUNT<i class="fas fa-info-circle fa-lg p-2 d-none d-md-inline"></i></a></li>
+                
+                <li><a class="nav-item nav-link mx-2 " href="{{ url_for('logout') }}">LOG OUT<i class="fas fa-user-times fa-lg p-2 d-none d-md-inline"></i></a></li>
+
+            </ul>
+        </div>
     </div>
-    <div class="collapse navbar-collapse" id="myNavbar">
-      <ul class="nav navbar-nav navbar-right">
-        <li>
-        <a class="nav-item nav-link mx-2 " href="{{ url_for('list') }}">LIST<i
-        class="fas fa-list-alt fa-lg p-2 d-none d-md-inline"></i></a>
-        <li><a class="nav-item nav-link mx-2 " href="{{ url_for('qrcode') }}">SCAN<i
-        class="fas fa-qrcode fa-lg p-2 d-none d-md-inline"></i></a>
-        <li><a class="nav-item nav-link mx-2 " href="{{ url_for('account') }}">ACCOUNT<i
-        class="fas fa-info-circle fa-lg p-2 d-none d-md-inline"></i></a>
-        <li><a class="nav-item nav-link mx-2 " href="{{ url_for('logout') }}">LOG OUT<i
-        class="fas fa-user-times fa-lg p-2 d-none d-md-inline"></i></a></li>
-      </ul>
-    </div>
-  </div>
 </nav>
+
+<div style="height: 45px;"></div>
+
+{% with messages = get_flashed_messages(with_categories=true) %}
+{% if messages %}
+{% for category, message in messages %}
+<div class='alert alert-{{ category }}'>
+    {{ message }}
+</div>  
+{% endfor%}
+{% endif %}
+{% endwith %}
 
 <div id="myCarousel" class="carousel slide text-center" data-ride="carousel"> 
     <ol class="carousel-indicators">
@@ -283,22 +297,14 @@
     </a>
   </div>
 </div>
-{% with messages = get_flashed_messages(with_categories=true) %}
-              {% if messages %}
-                {% for category, message in messages %}
-                <div class='alert alert-{{ category }}'>
-                    {{ message }}
-                </div>  
-                {% endfor%}
-                {% endif %}
-          {% endwith %}
 <div class="container bg-grey" style="padding: 60px 100px;
 margin-top: 5rem; 
     border-radius: 25px;">
   <div class="row">
-    <div class="col-sm-4">
-      <img src="https://img.icons8.com/doodle/48/000000/man-in-headphones.png"/ style="height: 20rem">
-    </div>
+    <center><div class="col-sm-4">
+      <img src="{{ url_for('static', filename='logo/robo.png')}}"/ style="height: 25rem">
+    </div></center>
+    
     <div class="col-sm-8 ">
     	<button class="btn btn-info btn-lg" id="x" onclick="typeWriter()">ASSISTANCE</button>
       <h2 id="toodles-intro" style="font-family: 'Roboto Mono', monospace; font-size: 3rem; text-align: center;"></h2><br>
@@ -306,18 +312,19 @@ margin-top: 5rem;
       <p id="toodles-p" style="color:#14ffec; font-family: 'Caveat', cursive; font-size: 3rem; display: none;">
       	Toodles says,
       	<br>
-      	here we go, list up items <a href="{{ url_for('list') }}" class="btn btn-primary btn-lg mx-2 px-2" style="float: right;"><strong>LIST</strong></a>
+      	"Here we go, list up the items." <a href="{{ url_for('list') }}" class="btn btn-primary btn-lg mx-2 px-2" style="float: right;"><strong>LIST</strong></a>
       	<br>
-      	oh, your list is ready, find the product  <a href="#search-bar" class="btn btn-info btn-lg mx-2 px-2" style="float: right;"><strong>SEARCH PRODUCT</strong></a>
+      	"Oh, your list is ready, find the product." <a href="#search-bar" class="btn btn-info btn-lg mx-2 px-2" style="float: right;"><strong>SEARCH PRODUCT</strong></a>
       	<br>
-      	found it, good choice,<br>
-      	scan the code right here <a href="{{ url_for('qrcode') }}" class="btn btn-success btn-lg mx-2 px-2" style="float: right;"><strong>SCAN</strong></a>
+      	"Found it, good choice."<br>
+      	"Scan the code right here" <a href="{{ url_for('qrcode') }}" class="btn btn-success btn-lg mx-2 px-2" style="float: right;"><strong>SCAN</strong></a>
       	<br>
-      	your things are added to your ZELF KARTE cart, make them yours just in few steps which are <a href="{{ url_for('qrcode') }}" class="btn btn-warning btn-lg mx-2 px-2" ><strong>SCAN</strong> </a>then go to CART and PAY
+      	"Your things are added to your ZELF KARTE cart, make them yours just in few steps which are <a href="{{ url_for('qrcode') }}" class="btn btn-warning btn-lg mx-2 px-2" ><strong>SCAN</strong> </a>then go to CART and PAY."
       	<br>
-      	thanks for shopping, hope you like it, don't forget to tell your exprience <a href="#contact" class="btn btn-danger btn-lg mx-2 px-2" style="float: right;"><strong>FEEDBACK</strong></a>
+      	"Thanks for shopping. Hope you liked it. Don't forget to share your experience." <a href="#contact" class="btn btn-danger btn-lg mx-2 px-2" style="float: right;"><strong>FEEDBACK</strong></a>
        </p>
     </div>
+  
   </div>
 </div>
 <!-- here comes the product list which i cant do now because it requires alot of code like sorting products according the person and then suggesting it -->
