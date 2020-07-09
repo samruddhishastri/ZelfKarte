@@ -1,29 +1,184 @@
-{% extends "layout.html" %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Zelf Karte</title>
+  
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
-{% block nav %}
-	<div class="navbar-nav ">
-    	<a class="nav-item nav-link mx-2 " href="{{ url_for('home') }}">HOME<i
-    class="fas fa-home fa-lg p-2 d-none d-md-inline"></i><span class="d-md-none"><i
-    class="fas fa-home px-2"></i></span></a>
+  <style>
+
+    .navbar {
+      margin-bottom: 0;
+      background-color: #1B2631;
+      z-index: 9999;
+      border: 0;
+      font-size: 12px !important;
+      line-height: 1.42857143 !important;
+      letter-spacing: 4px;
+      border-radius: 0;
+      font-family: Montserrat, sans-serif;
+    }
+    .navbar li a, .navbar .navbar-brand {
+      color: #fff !important;
+    }
+    .navbar-nav li a:hover, .navbar-nav li.active a {
+      color: #14ffec !important;
+      background-color: #fff !important;
+    }
+    .navbar-default .navbar-toggle {
+      border-color: transparent;
+      color: #fff !important;
+    }
+    
+    .wrap-login100{
+      width: 520px;
+      min-height: 100vh;
+      background: #fff;
+      border-radius: 2px;
+      position: relative;
+      float: right;
+    }
+
+    .wrap-input100 {
+      width: 100%;
+      position: relative;
+      border-bottom: 2px solid #dbdbdb;
+      margin-bottom: 45px;
+    }
+
+    .input100 {
+      display: block;
+      width: 100%;
+      height: 50px;
+      background: transparent;
+      font-family: Poppins-Regular;
+      font-size: 22px;
+      color: white;
+      line-height: 1.2;
+      padding: 0 2px;
+    }
+
+    .label-input100 {
+      font-family: Poppins-SemiBold;
+      font-size: 18px;
+      color: #999999;
+      line-height: 1.2;
+      padding-left: 2px;
+    }
+
+    .Signup{
+	  width:30.983vw;
+	  border: 0.270vw solid gray;
+	  border-radius:1.349vw; 
+	  box-shadow: 0 0 0.162vw 0 rgba(0,0,0,0.1);
+	  padding: 2.698vw;
+	  margin: 10% auto 0;
+	  text-align: left;
+	  font-family: 'Montserrat', cursive;
+	  color: #14ffec;
+	  text-overflow: ellipsis; 
+	}
+
+	.inputbox{ 
+
+	 border-radius:0.270vw; 
+
+	}
+
+	.a{
+	  color: #14ffec;
+	}
+
+	@media screen and (max-width: 950px) {
+	  .Signup{
+	  width:80.983vw;
+	  border: 0.270vw solid gray;
+	  border-radius:1.349vw; 
+	  box-shadow: 0 0 0.162vw 0 rgba(0,0,0,0.1);
+	  padding: 2.698vw;
+	  margin: 10% auto 0;
+	  text-align: left;
+	  font-family: 'Montserrat', cursive;
+	  color: #14ffec;
+	  text-overflow: ellipsis; 
+	  }
+
+	}
+
+	@media screen and (max-width: 710px) {
+	  .Signup{
+	  width:80.983vw;
+	  border: 0.270vw solid gray;
+	  border-radius:1.349vw; 
+	  box-shadow: 0 0 0.162vw 0 rgba(0,0,0,0.1);
+	  padding: 2.698vw;
+	  margin: 10% auto 0;
+	  text-align: left;
+	  font-family: 'Montserrat', cursive;
+	  color: #14ffec;
+	  text-overflow: ellipsis; 
+	  }
+
+	}
+  </style>
+</head>
+<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60" style="height: 100%; background-color: #1b2631">
+<nav class="navbar navbar-inverse navbar-fixed-top navbar-dark bg-dark">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>                        
+        </button>
+        <a class="navbar-brand" href="#"><a class="navbar-brand brandName" href="#"><svg class="bi bi-cart-check" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" d="M11.354 5.646a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L8 8.293l2.646-2.647a.5.5 0 0 1 .708 0z"/>
+          <path fill-rule="evenodd" d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm7 0a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"/>
+        </svg>Zelf Karte</a>
+      </div>
+      <div class="collapse navbar-collapse nav navbar-nav navbar-right" id="myNavbar">
+        <ul class="nav navbar-nav">
+          <li><a class="nav-item nav-link mx-2 " href="{{ url_for('home') }}">HOME<i class="fas fa-home fa-lg p-2 d-none d-md-inline"></i></a></li>
+        </ul>
+      </div>
     </div>
-{% endblock nav %}
+  </nav>
 
-{% block content %}
-    <div class="login" style="color: white; height: 100%">
+  <div style="height: 45px;"></div>
+  
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+    {% for category, message in messages %}
+    <div class='alert alert-{{ category }}'>
+      {{ message }}
+    </div>  
+    {% endfor%}
+    {% endif %}
+    {% endwith %}
+
+   <div style="color: white; background-color: #1b2631;">
         <div class="container">
             <br>
             <br>
             <br>
             <br>
             <h1 class="a" align="center">Reviews and Complaints</h1>
+            	<br>
+            	<br>
+            	<br>
                 <div class="Signup">
                     <div class="content-section">
                         <form method="POST" action="">
                             {{ form.hidden_tag() }}
                             <fieldset class="form-group">
-                                <legend class="border-bottom mb-4">{{ legend }}</legend>
+                                <legend class="border-bottom mb-4" style="color: #4287f5">{{ legend }}</legend>
                                 <div class="form-group">
-                                    {{ form.title.label(class="form-control-label") }}
+                                    {{ form.title.label(class="form-control-label text-muted") }}
                                     {% if form.title.errors %}
                                     {{ form.title(class="form-control form-control-lg is-invalid") }}
                                     <div class="invalid-feedback">
@@ -36,7 +191,7 @@
                                     {% endif %}
                                 </div>
                                 <div class="form-group">
-                                    {{ form.content.label(class="form-control-label") }}
+                                    {{ form.content.label(class="form-control-label text-muted") }}
                                     {% if form.content.errors %}
                                     {{ form.content(class="form-control form-control-lg is-invalid") }}
                                     <div class="invalid-feedback">
@@ -50,7 +205,7 @@
                                 </div>
                                 
                             </fieldset>
-                            <div class="form-group">
+                            <div class="form-group" style="color: black">
                                 {{ form.submit(class="btn btn-outline-info") }}
                             </div>
                         </form>
@@ -59,4 +214,5 @@
                 </div>
             </div>
         </div>
-{% endblock content %}
+    </body>
+    </html>
