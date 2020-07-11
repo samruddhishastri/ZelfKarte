@@ -3,7 +3,7 @@ import secrets
 from PIL import Image
 from flask import render_template, url_for, flash, redirect, request, abort
 from summerup import app, db, bcrypt, mail
-from summerup.models import User, Post, Todo, Item
+from summerup.models import User, Post, Todo, Item, All_items
 from summerup.forms import SignupForm, LoginForm, UpdateAccountForm, PostForm, RequestResetForm, ResetPasswordForm
 from flask_login import login_user, current_user, logout_user, login_required
 from flask_mail import Message
@@ -265,3 +265,11 @@ def cart():
 @login_required
 def payment():
 	return render_template('payment.html')
+
+
+@app.route("/search")
+def search():
+    name_search = request.args.get('name')
+    disp_item = All_items.query.filter(All_items.name.contains(name_search)).order_by(All_items.name).all()
+
+    return render_template('home.html', disp_item=disp_item)

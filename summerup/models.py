@@ -65,3 +65,9 @@ class Item(db.Model):
 	item_quantity = db.Column(db.Integer)
 	item_total = db.Column(db.Integer)
 	buyers = db.relationship('User', secondary=purchase, backref=db.backref('purchase', lazy='dynamic'))
+
+
+class All_items(db.Model):
+	id = db.Column(db.Integer, primary_key=True)
+	name = db.Column(db.String(20))
+	price = db.Column(db.Integer)

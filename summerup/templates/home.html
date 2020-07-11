@@ -329,17 +329,29 @@ margin-top: 5rem;
   </div>
 </div>
 <!-- here comes the product list which i cant do now because it requires alot of code like sorting products according the person and then suggesting it -->
+
 <div id="search-bar" >
 	<div class="text-center">
     <h2 style="margin-top: 5em">SEARCH PRODUCT</h2>
     <div class="justify-content-around">
-  <input type="text" placeholder="Search" style="width: 80%;
-    border-radius: 5px;
-    margin-bottom: 5rem;">
-    <button class="btn btn-success" type="submit"><span class="glyphicon glyphicon-search"></span></button>
-</div>      
+      <form action="{{ url_for('search') }}" method="get">
+        <div class="form-group">
+          <input type="text" placeholder="Search" style="width: 80%; border-radius: 5px; margin-bottom: 5rem;" name='name'>
+        </div>
+        <button class="btn btn-success" type="submit"><span class="glyphicon glyphicon-search"></span></button>
+      </form>
+    </div>      
+  </div>
 </div>
-</div>
+
+<table style="color:white">
+{% for x in disp_item %}
+    <tr>
+      <td>{{ x.name }}</td>
+      <td>{{ x.price }}</td>
+    </tr>
+{% endfor %}
+</table>
 
 <div id="contact" class="container-fluid bg-grey">
   <h2 class="text-center">CONTACT</h2>
