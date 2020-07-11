@@ -314,8 +314,9 @@
     
 			{% for x in disp_item %}
 			    <tr>
-			      <td><img style="border-radius: 50%; height: 125px;width: 125px; " src="{{url_for('static', filename='items_images/default.jpeg')}}"></td>
-			      <td><h2>{{ x.name }}</h2></td>
+			      <td><img style="border-radius: 50%; height: 125px;width: 125px; " src="static/items_images/{{ x.image_file }}"></td>
+			      
+            <td><h2>{{ x.name }}</h2></td>
 			      <td><h4>Rs. {{ x.price }}<h4></td>
 			    </tr>
 			{% endfor %}
@@ -326,5 +327,11 @@
 	<h1 style="background-color: #1b2631">No search results found.</h1>
 {% endif %} 
 </div>
+
+<footer class="container-fluid text-center">
+  <a href="#myPage" title="To Top">
+    <span class="glyphicon glyphicon-chevron-up"></span>
+  </a>
+</footer>
 </body>
 </html>
