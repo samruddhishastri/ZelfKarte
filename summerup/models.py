@@ -69,5 +69,6 @@ class Item(db.Model):
 
 class All_items(db.Model):
 	id = db.Column(db.Integer, primary_key=True)
+	image_file = db.Column(db.String(20), nullable = False, default = 'default.jpeg')
 	name = db.Column(db.String(20))
 	price = db.Column(db.Integer)

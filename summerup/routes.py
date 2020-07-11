@@ -271,5 +271,4 @@ def payment():
 def search():
     name_search = request.args.get('name')
     disp_item = All_items.query.filter(All_items.name.contains(name_search)).order_by(All_items.name).all()
-
-    return render_template('home.html', disp_item=disp_item)
+    return render_template('try.html', disp_item=disp_item)
