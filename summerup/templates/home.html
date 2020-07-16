@@ -285,7 +285,7 @@
         <img src="{{ url_for('static', filename='carousel/' + 'sale1.jpg') }}" class="d-block w-100" alt="" height="350">
       </div>
       <div class="item">
-         <img src="{{ url_for('static', filename='carousel/' + 'second.jpg') }}" class="d-block w-100" alt="" height="350">
+         <img src="{{ url_for('static', filename='carousel/' + 'new.jpg') }}" class="d-block w-100" alt="" height="350">
       </div>
     </div>
      <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
@@ -313,16 +313,21 @@ margin-top: 5rem;
       <p id="toodles-p" style="color:#14ffec; font-family: 'Caveat', cursive; font-size: 3rem; display: none;">
       	Toodles says,
       	<br>
-      	"Here we go, list up the items." <a href="{{ url_for('list') }}" class="btn btn-primary btn-lg mx-2 px-2" style="float: right;"><strong>LIST</strong></a>
+      	"Lets start by making a shopping list." <a href="{{ url_for('list') }}" class="btn btn-primary btn-lg mx-2 px-2"><strong>LIST</strong></a>
       	<br>
-      	"Oh, your list is ready, find the product." <a href="#search-bar" class="btn btn-info btn-lg mx-2 px-2" style="float: right;"><strong>SEARCH PRODUCT</strong></a>
+      	"Oh, your list is ready....great!!"
+        <br>"Now find your required products." <a href="#search-bar" class="btn btn-info btn-lg mx-2 px-2"><strong>Search Product</strong></a>
       	<br>
       	"Found it, good choice."<br>
-      	"Scan the code right here" <a href="{{ url_for('qrcode') }}" class="btn btn-success btn-lg mx-2 px-2" style="float: right;"><strong>SCAN</strong></a>
+      	"Scan the code right here" <a href="{{ url_for('qrcode') }}" class="btn btn-success btn-lg mx-2 px-2"><strong>SCAN</strong></a>
       	<br>
-      	"Your things are added to your ZELF KARTE cart, make them yours just in few steps which are <a href="{{ url_for('qrcode') }}" class="btn btn-warning btn-lg mx-2 px-2" ><strong>SCAN</strong> </a>then go to CART and PAY."
+      	"Your things are added to your ZELF KARTE cart
+        <br> You r just a click away from taking your stuff to your home." <br>
+        Tap and Pay!!
+         <a href="{{ url_for('payment') }}" class="btn btn-warning btn-lg mx-2 px-2" ><strong>Pay Now</strong> </a>
+        
       	<br>
-      	"Thanks for shopping. Hope you liked it. Don't forget to share your experience." <a href="#contact" class="btn btn-danger btn-lg mx-2 px-2" style="float: right;"><strong>FEEDBACK</strong></a>
+      	"Thanks for shopping. Don't forget to share your experience." <a href="#contact" class="btn btn-danger btn-lg mx-2 px-2"><strong>FEEDBACK</strong></a>
        </p>
     </div>
   
