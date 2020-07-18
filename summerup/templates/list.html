@@ -234,7 +234,7 @@ html, .shoplist_body
   text-align: left;
   font-weight: 400;
   font-family: 'Architects Daughter', cursive;
-  font-size: 15px; 
+  font-size: 25px; 
 }
 .addButton
 {
@@ -349,7 +349,8 @@ h3{
                 <ul>
                   {% for todo in current_user.todolist %}
                     {% if todo.complete==False %}
-                    <li class="task" >{{ todo.text }} <a href="{{ url_for('task_delete', id=todo.id) }}"><i class='fas fa-trash-alt'></i></a><a href="{{ url_for('complete', id=todo.id) }}"><i class='fas fa-check'></i></a></li>
+                    <li class="task" ><a href="{{ url_for('task_Click', id=todo.id) }}" style="color: black; font-family: 'Architects Daughter', cursive;
+  font-size: 25px;">{{todo.text}}</a> <a href="{{ url_for('task_delete', id=todo.id) }}"><i class='fas fa-trash-alt'></i></a><a href="{{ url_for('complete', id=todo.id) }}"><i class='fas fa-check'></i></a></li>
                     {% endif %}
                   {% endfor %}    
                 </ul>
@@ -360,7 +361,8 @@ h3{
                 <ul>
                   {% for todo in current_user.todolist %}
                     {% if todo.complete==True %}
-                    <li class="task" >{{ todo.text }}<a href="{{ url_for('task_delete', id=todo.id) }}"><i class='fas fa-trash-alt'></i></a></li>
+                    <li class="task" ><a href="{{ url_for('task_Click', id=todo.id) }}" style="color: black; font-family: 'Architects Daughter', cursive;
+  font-size: 25px;">{{todo.text}}</a><a href="{{ url_for('task_delete', id=todo.id) }}"><i class='fas fa-trash-alt'></i></a></li>
                     {% endif %}
                   {% endfor %}
                 </ul>
