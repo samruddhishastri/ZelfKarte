@@ -229,7 +229,6 @@ def complete(id):
 
 @app.route('/task_delete/<id>')
 def task_delete(id):
-
     todo = Todo.query.filter_by(id=int(id)).first()
     db.session.delete(todo)
     db.session.commit()
@@ -266,6 +265,12 @@ def cart():
 def payment():
 	return render_template('payment.html')
 
+@app.route('/task_Click/<id>')
+def task_Click(id):
+    todo = Todo.query.filter_by(id=int(id)).first()
+    name_search=todo.text
+    disp_item = All_items.query.filter(All_items.name.contains(name_search)).order_by(All_items.name).all()
+    return render_template('try.html', disp_item=disp_item)    
 
 @app.route("/search")
 def search():
