@@ -11,7 +11,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
-
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
   <style>
   body {
     font: 400 15px Lato, sans-serif;
@@ -208,13 +208,9 @@
     <div class="collapse navbar-collapse nav navbar-nav navbar-right" id="myNavbar">
       <ul class="nav navbar-nav">
         <li>
-        <a class="nav-item nav-link mx-2 " href="{{ url_for('about') }}">ABOUT<i
-        class="fas fa-users fa-lg p-2 d-none d-md-inline"></i></a></li>
-        <li><a class="nav-item nav-link mx-2 " href="{{ url_for('signup') }}">SIGN UP<i class="fas fa-user-plus fa-lg p-2 d-none d-md-inline"></i>
-        </a></li>
-        <li><a class="nav-item nav-link mx-2 " href="{{ url_for('login') }}">LOGIN<i
-            class="fas fa-user fa-lg p-2 d-none d-md-inline"></i>
-        </a></li>
+        <a class="nav-item nav-link mx-2 " href="{{ url_for('about') }}">ABOUT<i class="fas fa-users fa-lg p-2 d-none d-md-inline"></i></a></li>
+        <li><a class="nav-item nav-link mx-2 " href="{{ url_for('signup') }}">SIGN UP<i class="fas fa-user-plus fa-lg p-2 d-none d-md-inline"></i></a></li>
+        <li><a class="nav-item nav-link mx-2 " href="{{ url_for('login') }}">LOGIN<i class="fas fa-user fa-lg p-2 d-none d-md-inline"></i></a></li>
       </ul>
     </div>
   </div>
@@ -231,11 +227,6 @@
                 {% endif %}
           {% endwith %}
 <div id="myCarousel" class="carousel slide text-center" data-ride="carousel"> 
-    <ol class="carousel-indicators">
-      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-      <li data-target="#myCarousel" data-slide-to="1"></li>
-      <li data-target="#myCarousel" data-slide-to="2"></li>
-    </ol>
     <div class="carousel-inner" role="listbox">
       <div class="item active">
         <img src="{{ url_for('static', filename='carousel/' + 'second.jpg') }}" class="d-block w-100" alt="" height="350">
@@ -260,13 +251,16 @@
 <div id="about" class="container-fluid">
   <div class="row">
     <div class="col-sm-8 col-lg-10">
-      <h2>About Company Page</h2><br>
+      <h2>About Company</h2><br>
       <h4>Are you tired of waiting in long queues for your turn at the billing counter? Want to have a shopping experience where you don't have to carry your wallet?</h4><br>
       <p style="color:#14ffec;">Zelf Karte brings a revolutionary change in the traditional self-service shopping stores. We offer a seamless shopping experience to our customers, where you enter our store, grab what you want and leave and all this without even stopping for a second. Our high-end technology offers a cashless digital shopping platform where everything you buy adds up to your digital cart on a scan and payment is done online. It is a revolution in the world of traditional convenient stores.</p>
       <br><a href="{{ url_for('about') }}" class="btn btn-default btn-lg">Get in Touch</a>
+      <br>
+      <br>
+      <h1 style="color:#14ffec; font-size: 40px;">Want to turn your ordinary deparmental store into an exclusive Zelf Karte store? <a onclick="document.getElementById('id01').style.display='block'" class="text-muted" style="cursor: pointer;"> Collaborate with us today!</a></h1>
     </div>
     <div class="col-sm-4 col-lg-2">
-      <img src="{{ url_for('static', filename='logo/' + 'xyz.png') }}" height="500" width="200">
+      <img src="{{ url_for('static', filename='logo/' + 'xyz.png') }}" height="500" width="250">
     </div>
   </div>
 </div>
@@ -407,6 +401,79 @@
   </div>
 </div>
 
+<div id="id01" class="w3-modal" style="z-index:4 background-color: white; opacity: 1.0">
+  <div class="w3-modal-content w3-animate-zoom">
+    
+    <div class="w3-container w3-padding w3-teal">
+      <h2>ENTER YOUR DETAILS</h2>
+    </div>
+
+    <div class="w3-panel">
+      <form method="POST" action="">
+          {{ form.hidden_tag() }}
+          <div class="form-group wrap-input100">
+            {{ form.name.label(class="form-control-label label-input100") }}
+
+            {% if form.name.errors %}
+            {{ form.name(class="form-control form-control-lg is-invalid input100") }}
+
+            <div class="invalid-feedback">
+              {% for error in form.name.errors %}
+              <span style="color: red">{{ error }}</span>
+              {% endfor %}
+            </div>
+            {% else %}
+            {{ form.name(class="form-control form-control-lg input100") }}
+            {% endif %}
+          </div>
+          <div class="form-group wrap-input100">
+            {{ form.email.label(class="form-control-label label-input100") }}
+            {% if form.email.errors %}
+            {{ form.email(class="form-control form-control-lg is-invalid input100") }}
+            <div class="invalid-feedback">
+              {% for error in form.email.errors %}
+              <span style="color: red">{{ error }}</span>
+              {% endfor %}
+            </div>
+            {% else %}
+            {{ form.email(class="form-control form-control-lg input100") }}
+            {% endif %}
+          </div>
+          <div class="form-group wrap-input100">
+            {{ form.contact_number.label(class="form-control-label label-input100") }}
+            {% if form.contact_number.errors %}
+            {{ form.contact_number(class="form-control form-control-lg is-invalid input100") }}
+            <div class="invalid-feedback">
+              {% for error in form.contact_number.errors %}
+              <span style="color: red">{{ error }}</span>
+              {% endfor %}
+            </div>
+            {% else %}
+            {{ form.contact_number(class="form-control form-control-lg input100") }}
+            {% endif %}
+          </div>
+          <div class="form-group wrap-input100">
+            {{ form.address.label(class="form-control-label label-input100") }}
+            {% if form.address.errors %}
+            {{ form.address(class="form-control form-control-lg is-invalid input100") }}
+            <div class="invalid-feedback">
+              {% for error in form.address.errors %}
+              <span style="color: red">{{ error }}</span>
+              {% endfor %}
+            </div>
+            {% else %}
+            {{ form.address(class="form-control form-control-lg input100") }}
+            {% endif %}
+          </div>
+          <div class="form-group" style="float: right;">
+            {{ form.submit() }}
+          </div>
+          <a class="w3-button w3-teal" onclick="document.getElementById('id01').style.display='none'">Cancel  <i class="fa fa-remove"></i></a>
+      </form>    
+    </div>
+  </div>
+</div>
+
 <footer class="container-fluid text-center">
   <a href="#myPage" title="To Top">
     <span class="glyphicon glyphicon-chevron-up"></span>
@@ -442,6 +509,7 @@ $(document).ready(function(){
   });
 })
 </script>
+
 
 </body>
 </html>

@@ -182,12 +182,12 @@
             <p>Total <span class="price" style="color:black"><b>{{ current_user.purchase | sum(attribute='item_total')}}</b></span></p>
           
         </div>
-        <input type="submit" value="Confirm Payment" class="btn" onclick="clear_cart()"> 
+        <input type="submit" value="Confirm Payment" class="btn" onclick="alert_msg()"> 
       </form>
     </div>
     <script type="text/javascript">
-      function clear_cart(){
-
+      function alert_msg(){
+        alert("Your payment is successful. Thank you for visiting Zelf Karte.")
       }
     </script>
   </body>

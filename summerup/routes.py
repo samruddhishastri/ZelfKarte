@@ -4,14 +4,43 @@ from PIL import Image
 from flask import render_template, url_for, flash, redirect, request, abort
 from summerup import app, db, bcrypt, mail
 from summerup.models import User, Post, Todo, Item, All_items
-from summerup.forms import SignupForm, LoginForm, UpdateAccountForm, PostForm, RequestResetForm, ResetPasswordForm
+from summerup.forms import SignupForm, LoginForm, UpdateAccountForm, PostForm, RequestResetForm, ResetPasswordForm, CollaborateForm
 from flask_login import login_user, current_user, logout_user, login_required
 from flask_mail import Message
 
+def send_collaboration_email(name, email, contact_number, address, x):
+	msg = Message('Collaboration Request', sender='zelfkarte@gmail.com', recipients=[x])
 
-@app.route("/")
+	msg.body = f'''A collaboration request is recieved from {name}.
+Email: {email}
+Contact number: {contact_number}
+Address: {address}
+'''
+
+	mail.send(msg)
+
+def send_collaboration_email_to_user(email):
+	msg = Message('Collaboration Request', sender='zelfkarte@gmail.com', recipients=[email])
+
+	msg.body = f'''Thank you for registering in Zelf Karte. Your request for collaboration has been recieved. We will contact you within next 48 hrs. through email. Please stay updated. 
+'''
+
+	mail.send(msg)
+	
+
+@app.route("/", methods=['GET', 'POST'])
 def launch():
-	return render_template('launching_page.html')
+	form = CollaborateForm()
+
+	if form.validate_on_submit():
+		name = form.name.data
+		email = form.email.data
+		contact_number = form.contact_number.data
+		address = form.address.data
+		send_collaboration_email(name, email, contact_number, address, 'zelfkarte@gmail.com')
+		send_collaboration_email_to_user(email)
+		flash('Thank you for registering in Zelf Karte. Your request for collaboration has been recieved. We will contact you within next 48 hrs. through email. Please stay updated.', 'info')
+	return render_template('launching_page.html', form=form)
 
 @app.route("/home")
 @login_required
@@ -170,7 +199,7 @@ def send_reset_email(user):
 	msg = Message('Password Reset Request', sender='zelfkarte@gmail.com', recipients=[user.email])
 
 	msg.body = f'''To reset your password, visit the following link: 
-{url_for('reset_token', token = token, _external=True)}
+{url_for('reset_token', token = token, _external=True)} within 30 minutes else the token will be expired.
 
 If you did not request for password reset, simply ignore this mail. No changes will be made to your account.
 '''
@@ -270,10 +299,10 @@ def task_Click(id):
     todo = Todo.query.filter_by(id=int(id)).first()
     name_search = todo.text
     disp_item = All_items.query.filter(All_items.name.contains(name_search)).order_by(All_items.name).all()
-    return render_template('try.html', disp_item=disp_item)    
+    return render_template('search.html', disp_item=disp_item)    
 
 @app.route("/search")
 def search():
     name_search = request.args.get('name')
     disp_item = All_items.query.filter(All_items.name.contains(name_search)).order_by(All_items.name).all()
-    return render_template('try.html', disp_item=disp_item)
+    return render_template('search.html', disp_item=disp_item)

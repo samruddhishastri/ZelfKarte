@@ -24,6 +24,7 @@ class LoginForm(FlaskForm):
 	remember = BooleanField('Remember Me')
 	submit = SubmitField('Login')
 
+
 class UpdateAccountForm(FlaskForm):
 	username = StringField('Name', validators=[DataRequired(), Length(min=2, max=100)])
 	email = StringField('Email', validators=[DataRequired(), Email()])
@@ -55,3 +56,15 @@ class ResetPasswordForm(FlaskForm):
 	password = PasswordField('Password', validators=[DataRequired()])
 	confirm_password = PasswordField('Confirm Password', validators=[DataRequired(), EqualTo('password')])
 	submit = SubmitField('Reset Password')
+
+class CollaborateForm(FlaskForm):
+	name = StringField('Name', validators=[DataRequired(), Length(min=2, max=100)])
+	email = StringField('Email', validators=[DataRequired(), Email()])
+	address = StringField('Address', validators=[DataRequired()])
+	contact_number = StringField('Mobile Number', validators=[DataRequired(), Length(10)])
+	submit = SubmitField('Send')
+
+	def validate_contact_number(self, contact_number):
+		if not contact_number.data.isdigit():
+			raise ValidationError('Invalid mobile number.')
+

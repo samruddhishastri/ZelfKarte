@@ -72,3 +72,4 @@ class All_items(db.Model):
 	image_file = db.Column(db.String(20), nullable = False, default = 'default.jpeg')
 	name = db.Column(db.String(20))
 	price = db.Column(db.Integer)
+	vending_machine_number = db.Column(db.Integer)
