@@ -12,6 +12,7 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@1,600&display=swap" rel="stylesheet">
   <style>
   body {
     font: 400 15px Lato, sans-serif;
@@ -255,9 +256,6 @@
       <h4>Are you tired of waiting in long queues for your turn at the billing counter? Want to have a shopping experience where you don't have to carry your wallet?</h4><br>
       <p style="color:#14ffec;">Zelf Karte brings a revolutionary change in the traditional self-service shopping stores. We offer a seamless shopping experience to our customers, where you enter our store, grab what you want and leave and all this without even stopping for a second. Our high-end technology offers a cashless digital shopping platform where everything you buy adds up to your digital cart on a scan and payment is done online. It is a revolution in the world of traditional convenient stores.</p>
       <br><a href="{{ url_for('about') }}" class="btn btn-default btn-lg">Get in Touch</a>
-      <br>
-      <br>
-      <h1 style="color:#14ffec; font-size: 40px;">Want to turn your ordinary deparmental store into an exclusive Zelf Karte store? <a onclick="document.getElementById('id01').style.display='block'" class="text-muted" style="cursor: pointer;"> Collaborate with us today!</a></h1>
     </div>
     <div class="col-sm-4 col-lg-2">
       <img src="{{ url_for('static', filename='logo/' + 'xyz.png') }}" height="500" width="250">
@@ -325,9 +323,20 @@
   </div>
 </div>
 
-<div id="pricing" class="container-fluid">
+<div class="jumbotron jumbotron-fluid bg-grey">
+  <div class="container">
+    <h1 style="color:#14ffec; font-size: 2.75rem; font-family: 'Crimson Text', serif;">Want to turn your ordinary deparmental store into an exclusive Zelf Karte store?</h1>
+      <br>
+      <h2>Collaborate with us today!</h2>
+      <h4>Just fill up the form and our team will get to you within the next 48 hours via email. Simple, isn't it?</h4> 
+      <br>
+      <button class="btn btn-default btn-lg" onclick="document.getElementById('id01').style.display='block'" style="cursor: pointer;">Collaborate Now</button>
+  </div>
+</div>
+
+<div id="pricing" class="container-fluid ">
   <div class="text-center">
-    <h2>Specialistaions</h2>
+    <h2>Specialisations</h2>
     <h4>What we are</h4>
   </div>
   <div class="row slideanim">
@@ -392,15 +401,10 @@
         <h4 align="right">Let us know how we can improve...</h4>
         
           <a href="{{ url_for('complains') }}" class="btn btn-default btn-lg col-sm-6 mt-5 mt-md-0 col-md-4 pull-right">Feedback</a>
-        
       </div>
-
         </div>
       </div>
     </div>
-  </div>
-</div>
-
 <div id="id01" class="w3-modal" style="z-index:4 background-color: white; opacity: 1.0">
   <div class="w3-modal-content w3-animate-zoom">
     
