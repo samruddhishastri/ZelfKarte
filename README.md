@@ -24,6 +24,7 @@ It will generate a QR code at the mart which will be scanned by application and 
 ## Implementation
 The web-application is created using python3.  
 The non-general libraries required are mentioned in 'requirements.txt' file.
+> `pip3 install -r requirements.txt`
 
 ## Installation
 * Clone the repo to your local machine 
