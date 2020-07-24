@@ -113,16 +113,16 @@ h2,h3,h4,h5,h6 {font-family: "Karma", sans-serif}
       
       {% for x in disp_item %}
         
-        {% if loop.index % 4 == 1 %}
+        {% if loop.index % 3 == 1 %}
           <div class="w3-row-padding w3-padding-16 w3-center" id="food">
         {% endif %}
-          <div class="w3-quarter text-muted" style="overflow: hidden;">
+          <div class="w3-third text-muted" style="overflow: hidden;">
             <img src="../static/items_images/{{ x.image_file }}" style=" height: 155px;width: 155px; border-radius: 50%">
             <h3>{{ x.name }}</h3>
             <p>Rs. {{ x.price }}</p>
             <p>V M number: {{ x.vending_machine_number }}
           </div>
-        {% if loop.index % 4==0 %}
+        {% if loop.index % 3==0 %}
           </div>
         {% endif %}
       {% endfor %}
