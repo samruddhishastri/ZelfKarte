@@ -16,6 +16,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Caveat&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet">
 
+
+
   <style>
   html
  {
@@ -333,6 +335,147 @@ margin-top: 5rem;
   
   </div>
 </div>
+<br><br><br>
+
+  <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+  <style type="text/css">
+  @import url(https://fonts.googleapis.com/css?family=Ubuntu:400,300italic,500);
+*{
+  margin: 0px;
+  padding: 0px;
+}
+body {
+  background-color: #1b2631;
+  text-align: center;
+}
+
+h1 {
+  font-family: 'Ubuntu', sans-serif;
+  color: rgba(255, 255, 255, 0.65);
+  font-size: 120px;
+  margin: 20px 0px;
+  font-weight: 100;
+}
+
+@media screen and (max-width: 480px){
+  h1{
+    font-size: 48px;
+  }
+  #map{
+    width: 100%;
+    margin-top: 25px !important;
+  }
+  .title ul li{
+    padding: 8px 0px !important;
+  }
+  li a{
+    padding: 9px 10px !important;
+  }
+  .title {
+    margin-top: 30px;
+  }
+}
+
+.title ul li {
+  list-style: none;
+  font-family: 'Ubuntu', sans-serif;
+  display: inline-block;
+  border: #fff solid 2px;
+  border-radius: 50px;
+  padding: 10px 0px;
+  margin: 5px;
+}
+
+li a{
+  text-decoration: none;
+  color: #fff;
+  -webkit-transition: all 300ms cubic-bezier(0.455, 0.030, 0.515, 0.955); 
+  -moz-transition: all 300ms cubic-bezier(0.455, 0.030, 0.515, 0.955); 
+  -o-transition: all 300ms cubic-bezier(0.455, 0.030, 0.515, 0.955); 
+  transition: all 300ms cubic-bezier(0.455, 0.030, 0.515, 0.955);
+  padding: 10px 20px
+}
+
+li a:hover{
+  background: #fff;
+  color: #1db8e8;
+  border-radius: 50px;
+}
+
+#map{
+  margin-top: 40px;
+}
+
+</style>
+  <div class="container">
+  <h1>Store Map</h1>
+  <div class="title">
+    <ul>
+      <li><a class="title-blue">Section 1</a></li>
+      <li><a class="title-red">Section 2</a></li>
+      <li><a class="title-green">Section 3</a></li>
+      <li><a class="title-yellow">Section 4</a></li>
+      <li><a class="title-pink">Section 5</a></li>
+      <li><a class="title-grey">Section 6</a></li>
+    </ul>    
+  </div>
+  <img id="map" src="{{ url_for('static', filename='store_map/' + 'main.png') }}">
+</div>
+
+<script type="text/javascript">
+  function precarica( img ) {
+     $( img ).each( function () {
+        $( '<img/>' )[ 0 ].src = this;
+      });
+    }
+    precarica([
+        'sec4.png',
+        'sec2.png',
+        'sec5.png',
+        'sec3.png',
+        'sec1.png',
+        'sec6.png'
+      ]);
+
+    jQuery(document).ready(function () {
+      $('.title-blue').mouseout(function(){
+        $("#map").attr('src', 'static/store_map/sec1.png');
+      }),
+      $('.title-blue').mouseover( function(){
+        $("#map").attr('src', 'static/store_map/sec1.png');
+      });
+      $('.title-red').mouseout(function(){
+        $("#map").attr('src', 'static/store_map/sec2.png');
+      }),
+      $('.title-red').mouseover( function(){
+        $("#map").attr('src', 'static/store_map/sec2.png');
+      });
+      $('.title-green').mouseout(function(){
+        $("#map").attr('src', 'static/store_map/sec3.png');
+      }),
+      $('.title-green').mouseover( function(){
+        $("#map").attr('src', 'static/store_map/sec3.png');
+      }); 
+      $('.title-yellow').mouseout(function(){
+        $("#map").attr('src', 'static/store_map/sec4.png');
+      }),
+      $('.title-yellow').mouseover( function(){
+        $("#map").attr('src', 'static/store_map/sec4.png');
+      });
+      $('.title-pink').mouseout(function(){
+        $("#map").attr('src', 'static/store_map/sec5.png');
+      }),
+      $('.title-pink').mouseover( function(){
+        $("#map").attr('src', 'static/store_map/sec5.png');
+      });
+      $('.title-grey').mouseout(function(){
+        $("#map").attr('src', 'static/store_map/sec6.png');
+      }),
+      $('.title-grey').mouseover( function(){
+        $("#map").attr('src', 'static/store_map/sec6.png');
+      }); 
+    });         
+</script>
 <!-- here comes the product list which i cant do now because it requires alot of code like sorting products according the person and then suggesting it -->
 
 <div id="search-bar" >
