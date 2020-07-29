@@ -306,3 +306,10 @@ def search():
     name_search = request.args.get('name')
     disp_item = All_items.query.filter(All_items.name.contains(name_search)).order_by(All_items.name).all()
     return render_template('search.html', disp_item=disp_item)
+
+@app.route('/delete_profile_picture', methods=['POST'])
+@login_required
+def delete_profile_picture():
+	current_user.image_file = 'default.jpeg'
+	db.session.commit()
+	return redirect(url_for('account'))
