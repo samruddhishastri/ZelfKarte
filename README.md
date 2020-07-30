@@ -33,3 +33,6 @@ The non-general libraries required are mentioned in 'requirements.txt' file.
 > `python3 run.py`
 * Make sure to install all the required Libraries mentioned.
 * Open the local server through the link.
+
+* For further explainations view this PPT: 
+https://docs.google.com/presentation/d/1ldPsYMc8XskqqmtiiDmry8xvqXAB_MbJcYbS6e_hrTU/edit
